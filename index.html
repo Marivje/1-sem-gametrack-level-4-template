@@ -11,137 +11,317 @@
     <main class="app-shell">
         <section class="viewport">
             <section class="stage-screen">
-                <section
+                <section id="station1-scene"
                     class="scene"
-                    id="intro-scene"
-                    data-music="music-peaceful-piano"
+                    data-music="Trainoutside2"
                 >
                     <img
                         class="scene-background"
-                        src="assets/images/scenes/scene-living-room.png"
-                    >
-                    <img
-                        class="character is-hidden"
-                        data-char="abigail"
-                        src="assets/images/characters/char-abigail-sad.png"
-                    >
-                    <img
-                        class="character is-hidden"
-                        data-char="alex"
-                        src="assets/images/characters/char-alex-neutral.png"
+                        src="assets/images/scenes/station1-scene.png"
                     >
 
                     <div class="steps">
-                        <div data-step="show" data-target='[data-char="abigail"]'></div>
-                        <div data-step="show" data-target='[data-char="alex"]'></div>
-                        <div data-step="focus" data-target='[data-char="abigail"]'></div>
-                        <div data-step="say" data-speaker="Abigail" data-color="#79b8f9">
-                            Min notesbog er væk. Alt fra vores idéudvikling
-                            ligger i den.
+                        <div data-step="say" data-speaker="Dig" >
+                            Det ser ikke ud til at her er mange i dag.
                         </div>
+
                         <div data-step="wait-click"></div>
-                        <div data-step="focus" data-target='[data-char="alex"]'></div>
-                        <div data-step="say" data-speaker="Alex" data-color="#bdf9ac">
-                            Okay. Vi skal ikke panikke. Vi kan rekonstruere det
-                            meste, hvis vi tænker os om.
+                        <div data-step="say" data-speaker="Dig" >
+                            Godt, toget er her om lidt.
                         </div>
+
                         <div data-step="wait-click"></div>
-                        <div data-step="focus" data-target='[data-char="abigail"]'></div>
-                        <div data-step="say" data-speaker="Abigail" data-color="#79b8f9">
-                            Det er ikke bare noter. Der er også mine skitser og
-                            de valg, vi tog undervejs.
-                        </div>
+                        <div data-step="say"></div>
+
                         <div data-step="choice">
-                            <button type="button" data-run="encourageAbigail" data-next="living-room-search-scene">
-                                Vi finder den sammen.
+                            <button type="button" data-run="er">
+                                Ej hvor er jeg nervøs for jobsamtalen.
                             </button>
-                            <button type="button" data-run="doubtAbigail" data-next="living-room-search-scene">
-                                Er du sikker på, du ikke bare har glemt den?
+                            <button type="button" data-run="ikke">
+                                Jeg ser frem til jobsamtalen.
                             </button>
-                            <button type="button" data-run="startRoomSearch" data-next="living-room-search-scene">
-                                Lad os starte med at undersøge rummet.
+<!--i toget-->          </div>
+
+                        <div data-step="say" data-speaker="Dig" data-music="høretelefonermusik">
+                            Tid til lidt god musik på vejen.
+                        </div>
+
+                        <div data-step="choice">
+                            <button type="button" data-next="garden-scene">
+                                Gå ind i toget.
                             </button>
                         </div>
                     </div>
                 </section>
 
-                <section
+                <section id="garden-scene"
                     class="scene"
-                    id="living-room-search-scene"
-                    data-music="music-game"
-                    data-transition-sound="transition-soft"
+                    data-music="høretelefonermusik"
                 >
                     <img
                         class="scene-background"
-                        src="assets/images/scenes/scene-living-room.png"
+                        src="assets/images/scenes/scene-garden.png"
+                    >
+
+                    <section class="steps">
+                        <div data-step="say" data-speaker="Dig">
+                            ...
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Jeg skal af om (X) stops.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Efter jeg er kommet til København skal jeg ikke så langt.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            ...
+                        </div>
+
+                        <div data-step="wait-ms" data-ms="2400"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Oh, jeg glemte at svare på den der besked... det må jeg hellere gøre.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Kontrollør over radio" data-color="#15AAC8">
+                            “Toget køre ikke videre” - Næste stop er (X)
+                            der er forbindelse til
+                            (X og X) fra spor (X) og (X)
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Typisk DJB pis.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Altid forsinket eller aflyst når man skal noget vigtigt.
+                        </div>
+
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Kontrollør over radio" data-color="#15AAC8">
+                            Vi har nogle uforudsete problemer med dørene, der kan gå mellem 2-5 minutter.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            ...
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Altid... Hver gang...
+                        </div>
+                        <div data-step="choice">
+                            <button type="button" data-run="RoligSidNed">
+                                Tag dyb vejrtrækning og bliv siddende
+                            </button>
+                            <button type="button" data-run="VentForan">
+                                Vent foran døren
+                            </button>
+                        </div>
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            I det mindste kan jeg høre musik.
+                        </div>
+                        <div data-step="wait-ms" data-ms="2400"></div>
+                        <div data-step="choice">
+                            <button type="button" data-next="station2-scene">
+                                Stå af toget
+                            </button>
+                        </div>
+                    </section>
+                </section>
+
+                <section id="station2-scene"
+                         class="scene"
+                         data-music="Intense1"
+                >
+                    <img
+                        class="scene-background"
+                        src="assets/images/scenes/station2-scene.png"
+                    >
+                    <img
+                        class="scene-background"
+                        src="assets/images/scenes/station1-scene.png"
+                    >
+
+                    <div class="steps">
+                        <div data-step="say" data-speaker="Dig" data-next="station2-scene">
+                            ...
+                        </div>
+                        <div data-step="wait-click"></div>
+
+                        <div data-step="say" data-speaker="Dig">
+                            Jeg kender ikke den her station, hvor skal jeg gå hen!?
+                        </div>
+
+                        <div data-step="wait-click"></div>
+
+                        <div data-step="say" data-speaker="Dig">
+                            Okay, jeg skal videre, jeg har ikke tid til det her..
+                            men godt jeg tog afsted i god tid. Hvad skal jeg gøre nu?
+                        </div>
+                    </div>
+                        <section>
+                            <div class="steps">
+                                <div data-step="say" data-speaker="Dig">
+                                    Okay, jeg tjekker lige Planrejsen.dk hurtigt.
+                                </div>
+
+                                <div data-step="wait-click"></div>
+
+                                <div data-step="choice">
+                                    <button data-next="valg1-scene" data-run="valg1">Tag toget fra en anden perron</button>
+                                    <button data-next="valg2-scene" data-run="valg2">Vent på det næste tog</button>
+                                </div>
+                            </div>
+                        </section>
+                </section>
+
+                <section id="valg1-scene"
+                    class="scene"
+                    data-music="Intense1"
+                >
+                    <img
+                        class="scene-background"
+                        src="assets/images/scenes/station2-scene.png"
                     >
                     <img
                         class="character"
                         data-char="abigail"
                         src="assets/images/characters/char-abigail-neutral.png"
                     >
-                    <img
-                        class="character"
-                        data-char="alex"
-                        src="assets/images/characters/char-alex-neutral.png"
-                    >
-                    <img
-                        class="item"
-                        data-item="backpack"
-                        data-run="inspectBackpack"
-                        data-visible-if="shouldShowBackpack"
-                        src="assets/images/items/item-backpack.png"
-                    >
-                    <img
-                        class="item"
-                        data-item="mug"
-                        data-run="inspectMug"
-                        data-visible-if="shouldShowMug"
-                        src="assets/images/items/item-mug.png"
-                    >
-                    <img
-                        class="item"
-                        data-item="phone"
-                        data-run="inspectPhone"
-                        data-visible-if="shouldShowPhone"
-                        src="assets/images/items/item-phone.png"
-                    >
-
-                    <section class="scene-panel">
-                        <p class="eyebrow">Living Room</p>
-                        <h2>Undersøg stuen</h2>
-                        <p class="scene-panel-copy">
-                            Find spor, tal med gruppen, og saml nok information
-                            til at gå videre. Du kan gå til haven, når du har
-                            fundet jordsporet eller opbygget nok fokus.
-                        </p>
-                        <div class="scene-actions">
-                            <button class="secondary-button" type="button" data-run="talkToAbigail">
-                                Tal med Abigail
-                            </button>
-                            <button class="secondary-button" type="button" data-run="talkToAlex">
-                                Tal med Alex
-                            </button>
-                            <button class="primary-button" type="button" data-run="goToGarden">
-                                Gå ud i haven
-                            </button>
-                        </div>
-                    </section>
 
                     <div class="steps">
-                        <div data-step="focus" data-target='[data-char="alex"]'></div>
-                        <div data-step="say" data-speaker="Alex" data-color="#bdf9ac">
-                            Vi skal bruge spor. Kig rundt i rummet og se, hvad
-                            der ikke passer.
+                        <div data-step="say" data-speaker="Dig">
+                            Ej hvor er det træls, toget kræver at jeg tager et skift undervejs.
                         </div>
+
+                        <div data-step="wait-click"></div>
+
+                        <div data-step="say" data-speaker="Dig">
+                            Jeg må lige tjekke at jeg har husket at købe billet... bare for en sikkerheds skyld.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+
+                        <div data-step="say" data-speaker="Dig">
+                            Hvorfor kan jeg ikke åbne den appen? Argh.. jeg har ikke noget net.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+
+                        <div data-step="say" data-speaker="Dig">
+                            Typisk.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+
+                        <div data-step="say" data-speaker="Dig">
+                            Hmm... Toget kommer om 1 minnut, skal jeg købe en papirsbillet eller håbe på der ikke kommer en kontrollør?
+                        </div>
+
+                        <div data-step="choice">
+                            <button type="button" data-run="Billet">
+                                Køb billet
+                            </button>
+                            <button type="button" data-run="IkkeBillet">
+                                Håb på der ikke kommer en kontrollør
+                            </button>
+                        </div>
+
                     </div>
                 </section>
 
-                <section
-                    class="scene"
-                    id="garden-scene"
-                    data-music="music-forest"
-                    data-transition-sound="transition-blizzard"
+                <section id="valg2-scene"
+                        class="scene"
+                        data-music="Trainoutside2"
+                    >
+                        <img
+                            class="scene-background"
+                            src="assets/images/scenes/scene-living-room.png"
+                        >
+                        <div class="steps">
+                            <div data-step="say" data-speaker="Dig">
+                                Toget går om 20 minutter...
+                            </div>
+
+                        <div data-step="wait-click"></div>
+
+                            <div data-step="say" data-speaker="Dig">
+                                Jeg skal bare ha en plads, 5-10 minutter forsinket går nok.
+                            </div>
+
+                        <div data-step="wait-click"></div>
+
+                            <div data-step="say" data-speaker="Dig">
+                                Hvis jeg er hurtigt kan jeg måske indhente tiden når jeg er kommet til København, så behøver jeg ikke stresse.
+                            </div>
+
+                            <div data-step="wait-click"></div>
+
+                            <div data-step="say">
+                                20 minutter senere.
+                            </div>
+
+                        <div data-step="wait-click"></div>
+
+                            <div data-step="say" data-speaker="Dig">
+                                Der er godt nok mange der skal med det her tog
+                            </div>
+
+                        <div data-step="wait-click"></div>
+
+                            <div data-step="say" data-speaker="Dig">
+                                Hvorfor skal alle de folk også med toget nu, har de ikke et arbejde de skal passe.
+                            </div>
+
+                            <div data-step="wait-click"></div>
+
+                            <div data-step="choice">
+                                <button data-next="inden-mand-i-tog">Kig omkring</button>
+                            </div>
+                    </div>
+                </section>
+
+                <section id="inden-mand-i-tog"
+                         class="scene"
+                         data-music="Intense2"
+                >
+                    <img
+                        class="scene-background"
+                        src="assets/images/scenes/scene-garden.png"
+                    >
+
+                <div class="steps">
+                    <div data-step="wait-click"></div>
+
+                    <div data-step="say" data-speaker="Dig">
+                        Kun en siddeplads er ledig... og så det lige ved siden af en halvt fuld mand.
+                        Burde jeg blive stående her i gangen mellem alle de andre personer eller skal jeg sætte mig ved siden af ham?
+                    </div>
+
+                    <div data-step="wait-click"></div>
+
+                    <div data-step="choice">
+                        <button data-next="sidned-scene" data-run="Sidned">Sid ned</button>
+                        <button data-next="ståop-scene" data-run="Ståop">Bliv stående</button>
+                    </div>
+                </div>
+                </section>
+
+                <section id="Billet-scene"
+                         class="scene"
+                         data-music="chill1"
                 >
                     <img
                         class="scene-background"
@@ -152,267 +332,90 @@
                         data-char="abigail"
                         src="assets/images/characters/char-abigail-neutral.png"
                     >
-                    <img
-                        class="character"
-                        data-char="jessica"
-                        src="assets/images/characters/char-jessica-neutral.png"
-                    >
-                    <img
-                        class="item"
-                        data-item="headphones"
-                        data-run="inspectHeadphones"
-                        data-visible-if="shouldShowHeadphones"
-                        src="assets/images/items/item-headphones.png"
-                    >
-                    <img
-                        class="item"
-                        data-item="shoes"
-                        data-run="inspectShoes"
-                        data-visible-if="shouldShowShoes"
-                        src="assets/images/items/item-shoes.png"
-                    >
-
-                    <section class="scene-panel scene-panel--right">
-                        <p class="eyebrow">Garden</p>
-                        <h2>Følg sporet videre</h2>
-                        <p class="scene-panel-copy">
-                            Jessica ved måske mere, og tingene i haven fortæller
-                            også deres egen historie. Du kan først gå til
-                            parken, når du både har talt med Jessica og fundet
-                            headphones.
-                        </p>
-                        <div class="scene-actions">
-                            <button class="secondary-button" type="button" data-run="askJessicaAboutJack">
-                                Hvad lavede Jack herude?
-                            </button>
-                            <button class="secondary-button" type="button" data-run="challengeJessica">
-                                Hvorfor sagde du ikke noget før?
-                            </button>
-                            <button class="secondary-button" type="button" data-run="thankJessica">
-                                Tak. Det hjælper faktisk.
-                            </button>
-                            <button class="primary-button" type="button" data-run="goToPark">
-                                Gå mod parken
-                            </button>
-                        </div>
-                    </section>
 
                     <div class="steps">
-                        <div data-step="focus" data-target='[data-char="jessica"]'></div>
-                        <div data-step="say" data-speaker="Jessica" data-color="#8b5cf6">
-                            Jeg troede, I stadig var indenfor.
+                        <div data-step="say" data-speaker="Dig">
+                            Heldigt man stadig kan købe papirbilletter, især når nettet ikke virker.
                         </div>
+
                         <div data-step="wait-click"></div>
-                        <div data-step="focus" data-target='[data-char="abigail"]'></div>
-                        <div data-step="say" data-speaker="Abigail" data-color="#79b8f9">
-                            Min notesbog er væk.
+
+                        <div data-step="say" data-speaker="Dig">
+                            Nu skal jeg bare have fundet en plads,  der er altid så fyldt jo tættere på København man kommer.
                         </div>
-                        <div data-step="focus" data-target='[data-char="jessica"]'></div>
-                        <div data-step="say" data-speaker="Jessica" data-color="#8b5cf6">
-                            Jeg så Jack herude tidligere. Han virkede ikke helt
-                            sig selv.
-                        </div>
+
                     </div>
                 </section>
 
-                <section
-                    class="scene"
-                    id="park-scene"
-                    data-music="music-ominous"
-                    data-transition-sound="transition-epic"
+                <section id="IkkeBillet-scene"
+                         class="scene"
+                         data-music="music-ominous"
+                         data-transition-sound="transition-scary"
                 >
                     <img
                         class="scene-background"
-                        src="assets/images/scenes/scene-park.png"
+                        src="assets/images/scenes/station2-scene.png"
                     >
                     <img
                         class="character"
                         data-char="abigail"
                         src="assets/images/characters/char-abigail-neutral.png"
                     >
-                    <img
-                        class="character"
-                        data-char="alex"
-                        src="assets/images/characters/char-alex-neutral.png"
-                    >
-                    <img
-                        class="character"
-                        data-char="jack"
-                        src="assets/images/characters/char-jack-sad.png"
-                    >
-                    <img
-                        class="item"
-                        data-item="notepad"
-                        data-run="inspectNotepad"
-                        data-visible-if="shouldShowNotepad"
-                        src="assets/images/items/item-notepad.png"
-                    >
-
-                    <section class="scene-panel">
-                        <p class="eyebrow">Park</p>
-                        <h2>Tal med Jack</h2>
-                        <p class="scene-panel-copy">
-                            Jack ved, hvad der er sket, men gruppens reaktion
-                            afhænger af dine valg. Find notesbogen først, og vælg
-                            så hvordan du vil svare ham.
-                        </p>
-                        <div class="scene-actions">
-                            <button class="secondary-button" type="button" data-run="confrontJack">
-                                Du burde have sagt det.
-                            </button>
-                            <button class="secondary-button" type="button" data-run="stayCalmWithJack">
-                                Okay. Hvor blæste den hen?
-                            </button>
-                            <button class="secondary-button" type="button" data-run="accuseJack">
-                                Det her ødelægger hele projektet.
-                            </button>
-                            <button
-                                class="primary-button"
-                                type="button"
-                                data-run="supportTheGroup"
-                                data-visible-if="canOfferSupportChoice"
-                            >
-                                Lad os samle det vigtigste og hjælpe hinanden.
-                            </button>
-                        </div>
-                    </section>
 
                     <div class="steps">
-                        <div data-step="focus" data-target='[data-char="jack"]'></div>
-                        <div data-step="say" data-speaker="Jack" data-color="#f9bcac">
-                            Jeg vidste, I ville finde mig.
+                        <div data-step="say" data-speaker="Dig">
+                            ...
                         </div>
                         <div data-step="wait-click"></div>
-                        <div data-step="focus" data-target='[data-char="abigail"]'></div>
-                        <div data-step="say" data-speaker="Abigail" data-color="#79b8f9">
-                            Jack... har du min notesbog?
+                        <div data-step="say" data-speaker="Dig">
+                            Jeg ser ingen kontrollører i den her ende af toget, godt.
                         </div>
-                        <div data-step="focus" data-target='[data-char="jack"]'></div>
-                        <div data-step="say" data-speaker="Jack" data-color="#f9bcac">
-                            Ikke længere. Jeg spildte kaffe på en side, tog den
-                            med ud for at tørre den, og så tog vinden fat.
+
+                        <div data-step="choice">
+                            <button type="button" data-run="GemmeSig">
+                                Jeg må hellere gemme mig på toilettet for en sikkerheds skyld.
+                            </button>
+                            <button type="button" data-run="TagPlads">
+                                Det er alligevel sjældent der kommer kontrolløre, så det går nok.
+                            </button>
                         </div>
-                        <div data-step="focus" data-target='[data-char="alex"]'></div>
-                        <div data-step="say" data-speaker="Alex" data-color="#bdf9ac">
-                            Kig ved bænken. Hvis nogle sider stadig kan læses,
-                            kan vi måske redde projektet.
-                        </div>
+
                     </div>
                 </section>
 
-                <section
+                <section id="sidned-scene"
                     class="scene"
-                    id="street-night-scene"
-                    data-music="music-ominous"
-                    data-transition-sound="transition-scary"
+                    data-music="Intense2"
                 >
                     <img
                         class="scene-background"
                         src="assets/images/scenes/scene-street-night.png"
                     >
-                    <img
-                        class="character"
-                        data-char="abigail"
-                        src="assets/images/characters/char-abigail-neutral.png"
-                    >
-                    <img
-                        class="character"
-                        data-char="alex"
-                        src="assets/images/characters/char-alex-neutral.png"
-                    >
-                    <img
-                        class="character"
-                        data-char="jessica"
-                        src="assets/images/characters/char-jessica-neutral.png"
-                    >
-                    <img
-                        class="character"
-                        data-char="jack"
-                        src="assets/images/characters/char-jack-neutral.png"
-                    >
 
-                    <section class="scene-panel scene-panel--right">
-                        <p class="eyebrow">Street Night</p>
-                        <h2>Før midnat</h2>
-                        <p class="scene-panel-copy">
-                            Gruppen går hjem gennem den mørke gade. Nu viser
-                            dine tidligere valg, om de stadig fungerer som et
-                            team, eller om aftenen har skabt for meget afstand.
-                        </p>
-                        <div class="scene-actions">
-                            <button class="primary-button" type="button" data-run="resolveEnding">
-                                Se slutningen
-                            </button>
-                        </div>
-                    </section>
+                        <div class="steps">
 
-                    <div class="steps">
-                        <div data-step="focus" data-target='[data-char="abigail"]'></div>
-                        <div data-step="say" data-speaker="Abigail" data-color="#79b8f9">
-                            Vi har notesbogen. Nu skal vi beslutte, om vi stadig
-                            er et team.
                         </div>
-                    </div>
                 </section>
 
-                <section
-                    class="scene"
-                    id="ending-good-scene"
-                    data-hide-story-ui="true"
-                    data-music="music-game-over-good"
-                    data-transition-sound="transition-futuristic"
+                <section id="ståop-scene"
+                         class="scene"
+                         data-music="Intense2"
                 >
                     <img
                         class="scene-background"
-                        src="assets/images/scenes/scene-living-room.png"
+                        src="assets/images/scenes/scene-street-night.png"
                     >
 
-                    <section class="ending-screen ending-screen--good">
-                        <p class="ending-kicker">Ending A</p>
-                        <h1>Sammen før solopgang</h1>
-                        <p class="ending-lead">
-                            Notesbogen er ikke perfekt længere, men gruppen får
-                            samlet nok sider, nok idéer og nok tillid til at
-                            redde projektet før deadline.
-                        </p>
+                    <div class="steps">
 
-                        <section class="ending-card">
-                            <h2>Hvad der skete</h2>
-                            <ul class="ending-summary">
-                                <li data-visible-if="builtTrust">
-                                    Du holdt gruppen samlet, og tilliden bar jer
-                                    gennem den værste del af krisen.
-                                </li>
-                                <li data-visible-if="stayedFocused">
-                                    Du undersøgte sporene grundigt nok til at
-                                    finde sandheden før midnat.
-                                </li>
-                                <li data-visible-if="foundPhoneMessage">
-                                    Jacks efterladte telefonbesked blev et
-                                    vigtigt spor i efterforskningen.
-                                </li>
-                                <li>
-                                    I reddede projektet, ikke fordi alt gik
-                                    rigtigt, men fordi I valgte at arbejde
-                                    sammen.
-                                </li>
-                            </ul>
-                        </section>
-
-                        <button class="primary-button ending-button" type="button" data-run="restartStory">
-                            Spil igen
-                        </button>
-                    </section>
-
-                    <div class="steps"></div>
+                    </div>
                 </section>
 
-                <section
-                    class="scene"
-                    id="ending-bad-scene"
-                    data-hide-story-ui="true"
-                    data-music="music-game-over-bad"
-                    data-transition-sound="transition-glitch"
+                <section id="slutA"
+                         class="scene"
+                         data-hide-story-ui="true"
+                         data-music="music-game-over-bad"
+                         data-transition-sound="transition-glitch"
                 >
                     <img
                         class="scene-background"
@@ -504,6 +507,12 @@
     <audio id="sfx-click" preload="auto" src="assets/audio/sfx-click.mp3"></audio>
     <audio id="sfx-pickup" preload="auto" src="assets/audio/sfx-pickup.mp3"></audio>
     <audio id="sfx-bell" preload="auto" src="assets/audio/sfx-bell.mp3"></audio>
+    <audio id="chill1" preload="auto" src="assets/audio/BGM%20chill%201%20(vers%203).mp3"></audio>
+    <audio id="høretelefonermusik" preload="auto" src="assets/audio/BGM%20chill%202%20(vers.%201).mp3"></audio>
+    <audio id="trainoutside1" preload="auto" src="assets/audio/train%20outside%20SFX%201.mp3"></audio>
+    <audio id="Trainoutside2" preload="auto" src="assets/audio/train%20outside%20SFX%202.mp3"></audio>
+    <audio id="Intense1" preload="auto" src="assets/audio/BGM%20intense%201%20(vers%201).mp3"></audio>
+    <audio id="Intense2" preload="auto" src="assets/audio/BGM%20intense%201%20(vers%202).mp3"></audio>
     <audio
         id="dialog-abigail-notebook"
         preload="auto"

@@ -5,8 +5,8 @@
   --ink: #182026;
   --panel: rgba(252, 248, 242, 0.94);
   --panel-border: #24333f;
-  --accent: #d96d3f;
-  --accent-dark: #aa4c28;
+  --accent: #e85535;
+  --accent-dark: #a8240a;
   --shadow: rgba(24, 32, 38, 0.18);
   --muted: #63707a;
 }
@@ -457,35 +457,35 @@ h2 {
 
 .dialog-panel {
   --dialog-border-color: var(--panel-border);
-  --dialog-bg-top: rgba(249, 244, 236, 0.94);
-  --dialog-bg-bottom: rgba(242, 233, 219, 0.96);
   --speaker-bg: rgba(217, 109, 63, 0.12);
-  --speaker-text: var(--accent-dark);
   position: relative;
-  width: 100%;
+  width: 50%;
   min-height: 148px;
   display: grid;
   align-content: start;
   gap: 0.75rem;
   border-color: var(--dialog-border-color);
-  background: linear-gradient(180deg, var(--dialog-bg-top), var(--dialog-bg-bottom));
+  background: rgb(232, 232, 232, 0.4);
 }
 
 .speaker-label {
   width: fit-content;
   padding: 0.35rem 0.65rem;
-  border-radius: 999px;
-  background: var(--speaker-bg);
-  font-size: 0.95rem;
+  border-radius: 8px;
+  background-color: rgba(221, 215, 221, 0.4);
+  font-size: 1.40rem;
   font-weight: 700;
+  font-family: "serif";
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--speaker-text);
+  color: #0f1303;
 }
 
 .dialog-text {
-  font-size: 1.05rem;
+  font-size: 1.20rem;
   line-height: 1.65;
+  font-family: Arial;
+  color: #0f1303;
 }
 
 .action-panel {
@@ -533,7 +533,7 @@ h2 {
 
 .primary-button,
 .choice-list button {
-  color: #fff8f1;
+  color: #ededed;
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
 }
 

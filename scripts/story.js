@@ -8,9 +8,9 @@ import { VisualNovelEngine } from './engine.js';
  * stats, clues, items, or which conversations already happened.
  */
 const storyInitialState = {
-  statTrust: 0,
-  statFocus: 0,
-  statCourage: 0,
+  statTime: 0,
+  statAngst: 0,
+  statStress: 0,
   itemHasNotepad: false,
   itemHasHeadphones: false,
   itemHasPhone: false,
@@ -23,6 +23,18 @@ const storyInitialState = {
   clueFoundPhoneMessage: false,
   storyAccusedSomeone: false,
   storyCheckedBackpack: false,
+  valg1: false,
+  valg2: false,
+  er: false,
+  ikke: false,
+  RoligSidNed: false,
+  VentForan: false,
+  Billet: false,
+  IkkeBillet: false,
+  GemmeSig: false,
+  TagPlads: false,
+  Sidned: false,
+  Ståop: false,
   storyEnding: /** @type {'good' | 'bad' | null} */ (null),
 };
 
@@ -173,23 +185,143 @@ const storyActions = {
    * @param {StoryEngine} game
    * @returns {void}
    */
-  encourageAbigail(game) {
+  RoligSidNed (game) {
     game.setState({
-      statTrust: game.state.statTrust + 1,
-      talkedToAbigail: true,
+      statStress: game.state.statStress - 1,
+      RoligSidNed: true,
+    })
+  },
+  VentForan (game) {
+    game.setState({
+      statStress: game.state.statStress + 3,
+      VentForan:true,
+    })
+  },
+  harRoligSidNed(game) {
+    return game.state.RoligSidNed;
+  },
+
+  harVentForan(game) {
+    return game.state.VentForan;
+  },
+
+  valg1(game) {
+    game.setState({
+      statTime: game.state.statTime - 5,
+      valg1:true,
     });
+
+    return 'valg1-scene';
+  },
+
+  valg2(game) {
+    game.setState({
+      statTime: game.state.statTime - 20,
+      valg2:true,
+    });
+
+    return 'valg2-scene';
+  },
+  harValgt1(game) {
+    return game.state.valg1;
+  },
+
+  harValgt2(game) {
+    return game.state.valg2;
+  },
+
+  er (game) {
+    game.setState({
+      statAngst: game.state.statAngst + 1,
+      er: true,
+    })
+  },
+  ikke (game) {
+    game.setState({
+      statAngst: game.state.statAngst + 0,
+      ikke:true,
+    })
+  },
+  harEr(game) {
+    return game.state.er;
+  },
+
+  harikke(game) {
+    return game.state.ikke;
+  },
+
+  Billet(game) {
+    game.setState({
+      statAngst: game.state.statAngst - 3,
+      Billet:true,
+    });
+
+    return 'Billet-scene';
+  },
+
+  IkkeBillet(game) {
+    game.setState({
+      statAngst: game.state.statAngst - 6,
+      IkkeBillet:true,
+    });
+
+    return 'IkkeBillet-scene';
+  },
+  harBillet(game) {
+    return game.state.Billet;
+  },
+
+  harIkkeBillet(game) {
+    return game.state.IkkeBillet;
+  },
+
+  GemmeSig (game) {
+    game.setState({
+      statAngst: game.state.statAngst + 4,
+      statStress: game.state.statStress + 1,
+      GemmeSig: true,
+    })
+  },
+  TagPlads (game) {
+    game.setState({
+      statAngst: game.state.statAngst + 6,
+      statStress: game.state.statStress + 5,
+      TagPlads:true,
+    })
+  },
+  harGemmeSig(game) {
+    return game.state.GemmeSig;
+  },
+
+  harTagPlads(game) {
+    return game.state.TagPlads;
+  },
+
+  Sidned (game) {
+    game.setState({
+      statAngst: game.state.statAngst + 5,
+      statStress: game.state.statStress + 1,
+      Sidned: true,
+    })
+  },
+  Ståop (game) {
+    game.setState({
+      statAngst: game.state.statAngst + 2,
+      Ståop:true,
+    })
+  },
+  harSidned(game) {
+    return game.state.Sidned;
+  },
+
+  harStåop(game) {
+    return game.state.Ståop;
   },
 
   /**
    * @param {StoryEngine} game
    * @returns {void}
    */
-  doubtAbigail(game) {
-    game.setState({
-      statTrust: game.state.statTrust - 1,
-      storyAccusedSomeone: true,
-    });
-  },
 
   /**
    * @param {StoryEngine} game
@@ -210,10 +342,10 @@ const storyActions = {
       talkedToAbigail: true,
     });
 
-    if (game.state.statTrust < 0) {
+    if (game.state.statTime < 0) {
       game.setDialog(
-        'Abigail',
-        'Jeg prøver virkelig at huske det hele. Jeg har bare brug for, at vi holder hovedet koldt.',
+        'Dig',
+        'Hvad skal jeg vælge?.',
         '#79b8f9',
       );
       return;
@@ -257,6 +389,10 @@ const storyActions = {
    * @param {StoryEngine} game
    * @returns {void}
    */
+  /**
+   * @param {StoryEngine} game
+   * @returns {void}
+   */
   inspectBackpack(game) {
     if (game.state.storyCheckedBackpack) {
       game.setDialog(
@@ -267,18 +403,20 @@ const storyActions = {
       return;
     }
 
-    game.setState({
-      storyCheckedBackpack: true,
-      statFocus: game.state.statFocus + 1,
-    });
-
-    if (game.state.statTrust < 0) {
+    if (game.state.statTime < -5) {
       game.setDialog(
-        'Alex',
-        'Det er min taske. Kig bare, men Abigail lagde notesbogen på bordet længe efter, jeg pakkede ud.',
+        'Dig',
+        'Der kommer et tog på en anden perron om kort tid.' +
+        'Det kræver et togskift midtvejs...',
         '#bdf9ac',
       );
-      return;
+    }
+    if (game.state.statTime < -20) {
+      game.setDialog(
+        'Dig',
+        'Der ankommer et tog om 20 minutter, jeg vil blive 5-10 minutter forsinket til min jobsamtale.',
+        '#bdf9ac',
+      );
     }
 
     game.setDialog(
@@ -433,6 +571,8 @@ const storyActions = {
       '#8b5cf6',
     );
   },
+
+
 
   /**
    * @param {StoryEngine} game
@@ -610,7 +750,7 @@ const storyActions = {
 
 VisualNovelEngine.boot({
   // Change this if you want the story to begin in another scene from index.html.
-  startSceneId: 'intro-scene',
+  startSceneId: 'station1-scene',
   initialState: storyInitialState,
   conditions: /** @type {Record<string, import('./engine.js').EngineCondition>} */ (
     storyConditions
