@@ -12,17 +12,9 @@ const storyInitialState = {
   statAngst: 0,
   statStress: 0,
   itemHasNotepad: false,
-  itemHasHeadphones: false,
-  itemHasPhone: false,
-  itemHasShoes: false,
-  talkedToAbigail: false,
-  talkedToAlex: false,
-  talkedToJack: false,
-  talkedToJessica: false,
-  clueFoundGarden: false,
-  clueFoundPhoneMessage: false,
-  storyAccusedSomeone: false,
-  storyCheckedBackpack: false,
+  øjnkontakt: false,
+  ikkeøjnkontakt: false,
+  ignoreralt: false,
   valg1: false,
   valg2: false,
   er: false,
@@ -31,10 +23,12 @@ const storyInitialState = {
   VentForan: false,
   Billet: false,
   IkkeBillet: false,
-  GemmeSig: false,
-  TagPlads: false,
   Sidned: false,
   Ståop: false,
+  ingenting:false,
+  armtil: false,
+  ignorer: false,
+  tys: false,
   storyEnding: /** @type {'good' | 'bad' | null} */ (null),
 };
 
@@ -160,8 +154,17 @@ const storyConditions = {
    * @param {StoryEngine} game
    * @returns {boolean}
    */
-  builtTrust(game) {
-    return game.state.statTrust >= 2;
+  builtAngst(game) {
+    return game.state.statAngst <= 5;
+  },
+  Angst(game) {
+    return game.state.statAngst >= 5;
+  },
+  builtStress(game) {
+    return game.state.statStress <= 5;
+  },
+  Stress(game) {
+    return game.state.statStress >= 5;
   },
 };
 
@@ -180,11 +183,18 @@ const storyActions = {
     game.resetState();
     return 'intro-scene';
   },
-
+  startGame(game) {
+    game.goTo('station1-scene');
+  },
+  tilbage(game) {
+    game.goTo('intro-scene');
+  },
   /**
    * @param {StoryEngine} game
    * @returns {void}
    */
+
+
   RoligSidNed (game) {
     game.setState({
       statStress: game.state.statStress - 1,
@@ -203,6 +213,35 @@ const storyActions = {
 
   harVentForan(game) {
     return game.state.VentForan;
+  },
+  altokay (game) {
+    game.setState({
+      statStress: game.state.statStress - 3,
+      statAngst: game.state.statAngst - 3,
+      altokay: true,
+    })
+    game.setDialog(
+      'Dig',
+      'jeg er snart fremme ved endestationen.',
+    );
+  },
+  altikkeokay (game) {
+    game.setState({
+      statStress: game.state.statStress + 3,
+      statAngst: game.state.statAngst +3,
+      altikkeokay:true,
+    })
+    game.setDialog(
+      'Dig',
+      'Hvad var det nu jeg skulle i dag? Jeg kan ikke tænke på noget, mit hovede gør ondt...',
+    );
+  },
+  haraltokay(game) {
+    return game.state.altokay;
+  },
+
+  haraltikkeokay(game) {
+    return game.state.altikkeokay;
   },
 
   valg1(game) {
@@ -261,7 +300,7 @@ const storyActions = {
 
   IkkeBillet(game) {
     game.setState({
-      statAngst: game.state.statAngst - 6,
+      statAngst: game.state.statAngst + 6,
       IkkeBillet:true,
     });
 
@@ -275,38 +314,14 @@ const storyActions = {
     return game.state.IkkeBillet;
   },
 
-  GemmeSig (game) {
-    game.setState({
-      statAngst: game.state.statAngst + 4,
-      statStress: game.state.statStress + 1,
-      GemmeSig: true,
-    })
-  },
-  TagPlads (game) {
-    game.setState({
-      statAngst: game.state.statAngst + 6,
-      statStress: game.state.statStress + 5,
-      TagPlads:true,
-    })
-  },
-  harGemmeSig(game) {
-    return game.state.GemmeSig;
-  },
-
-  harTagPlads(game) {
-    return game.state.TagPlads;
-  },
-
   Sidned (game) {
     game.setState({
-      statAngst: game.state.statAngst + 5,
-      statStress: game.state.statStress + 1,
       Sidned: true,
     })
   },
   Ståop (game) {
     game.setState({
-      statAngst: game.state.statAngst + 2,
+      statAngst: game.state.statAngst + 1,
       Ståop:true,
     })
   },
@@ -316,6 +331,136 @@ const storyActions = {
 
   harStåop(game) {
     return game.state.Ståop;
+  },
+
+  armtil (game) {
+    game.setState({
+      statAngst: game.state.statAngst + 5,
+      statStress: game.state.statStress + 5,
+      armtil: true,
+    });
+
+    game.setDialog(
+      'Dig',
+      'Han holder godt fast, jeg kan ikke få ham til at give slip...',
+    );
+    game.playSfx('heartbeat1');
+  },
+
+  ingenting (game) {
+    game.setState({
+      statAngst: game.state.statAngst + 5,
+      statStress: game.state.statStress + 5,
+      ingenting:true,
+    });
+
+    game.setDialog(
+      'Dig',
+      'Det gør mere og mere ondt, alle kigger på mig.',
+    );
+    game.playSfx('tinnitus1');
+  },
+  hararmtil(game) {
+    return game.state.armtil;
+  },
+
+  haringenting(game) {
+    return game.state.ingenting;
+  },
+
+  ignorer (game) {
+    game.setState({
+      statAngst: game.state.statAngst + 1,
+      ignorer: true,
+    });
+
+    game.setDialog(
+      'Dig',
+      'Alle kigger på mig...',
+    );
+  },
+  tys (game) {
+    game.setState({
+      statAngst: game.state.statAngst + 2,
+      statStress: game.state.statStress - 1,
+      tys: true,
+    });
+
+    game.setDialog(
+      'Dig',
+      'Shhh... kan du ikke lige være stille?',
+    );
+  },
+  harignorer(game) {
+    return game.state.ignorer;
+  },
+
+  hartys(game) {
+    return game.state.tys;
+  },
+
+  ståAfTog (game) {
+    const sfx = game.playSfx('dooropen');
+
+    if (sfx) {
+      sfx.onended = () => {
+        game.goTo('station2-scene');
+      };
+    }
+  },
+  ståAfTog1 (game) {
+    const sfx = game.playSfx('dooropen');
+
+    if (sfx) {
+      sfx.onended = () => {
+        game.goTo('slutA-valg2');
+      };
+    }
+  },
+  ståAfTog2 (game) {
+    const sfx = game.playSfx('dooropen');
+
+    if (sfx) {
+      sfx.onended = () => {
+        game.goTo('slutB-valg2');
+      };
+    }
+  },
+  øjnkontakt (game) {
+    game.setState({
+      statStress: game.state.statStress + 5,
+      er: true,
+    })
+    game.setDialog(
+      'Dig',
+      'Møj... vi fik øjnkontakt.',
+    );
+  },
+  ikkeøjnkontakt (game) {
+    game.setState({
+      statStress: game.state.statStress + 4,
+      ikke:true,
+    })
+  },
+  ignoreralt (game) {
+    game.setState({
+      statStress: game.state.statStress + 0,
+      ikke:true,
+    })
+    game.setDialog(
+      'Dig',
+      '....',
+    );
+  },
+  harøjnkontakt(game) {
+    return game.state.øjnkontakt;
+  },
+
+  harikkeøjnkontakt(game) {
+    return game.state.ikkeøjnkontakt;
+  },
+  harignoreralt(game) {
+    return game.state.ignoreralt;
   },
 
   /**
@@ -750,7 +895,7 @@ const storyActions = {
 
 VisualNovelEngine.boot({
   // Change this if you want the story to begin in another scene from index.html.
-  startSceneId: 'station1-scene',
+  startSceneId: 'intro-scene',
   initialState: storyInitialState,
   conditions: /** @type {Record<string, import('./engine.js').EngineCondition>} */ (
     storyConditions
@@ -759,3 +904,4 @@ VisualNovelEngine.boot({
     storyActions
   ),
 });
+
