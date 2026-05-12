@@ -229,13 +229,16 @@ h2 {
 #manden-i-toget,
   .character[data-char="mand"] {
     bottom: -2rem;
+  z-index: 2;
   }
 .character[data-char="mand1"] {
   bottom: -2rem;
+  z-index: 2;
 }
-.scene [data-char ="baggrund1"] {
+.character[data-char="faces"] {
   bottom: -2rem;
 }
+
 
   .item[data-item="headphones"] {
     left: 37%;
@@ -429,7 +432,7 @@ h2 {
 .dialog-panel,
 .action-panel {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
 }
 
 .dialog-panel,

@@ -122,6 +122,7 @@
                         </div>
                     </section>
 
+<!--                Mangler stationer navne-->
                 <section id="itog1"
                     class="scene"
                     data-music="høretelefonermusik"
@@ -259,43 +260,54 @@
                         class="scene-background"
                         src="assets/images/scenes/station%202%20v2%20clear.png"
                     >
-                    <img
-                        class="character"
-                        data-char="abigail"
-                        src="assets/images/characters/char-abigail-neutral.png"
-                    >
 
                     <div class="steps">
                         <div data-step="say" data-speaker="Dig">
-                            Ej hvor er det træls, toget kræver at jeg tager et skift undervejs.
+                            Ej hvor er det irriterende, toget kræver at jeg tager et skift undervejs.
                         </div>
 
                         <div data-step="wait-click"></div>
-
                         <div data-step="say" data-speaker="Dig">
-                            Jeg må lige tjekke at jeg har husket at købe billet... bare for en sikkerheds skyld.
+                            Okay jeg skynder mig bare en til perronen, så må jeg tage det som det kommer.
                         </div>
 
                         <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            ...
+                        </div>
 
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Jeg.. Jeg havde glemt at købe en billet til toget.
+                        </div>
+
+                        <div data-step="choice">
+                            <button type="button" data-run="RoligSidNed">Det ikke tit jeg husker det</button>
+                            <button type="button" data-run="VentForan">Jeg plejer ellers altid at huske det</button>
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Jeg må hellere købe en over appen nu, bare for at være sikker.
+                        </div>
+
+                        <div data-step="wait-click"></div>
                         <div data-step="say" data-speaker="Dig">
                             Hvorfor kan jeg ikke åbne den appen? Argh.. jeg har ikke noget net.
                         </div>
 
                         <div data-step="wait-click"></div>
-
                         <div data-step="say" data-speaker="Dig">
                             Typisk.
                         </div>
 
                         <div data-step="wait-click"></div>
-
                         <div data-step="say" data-speaker="Dig">
                             Hmm... Toget kommer om 1 minnut, skal jeg købe en papirsbillet eller håbe på der ikke kommer en kontrollør?
                         </div>
 
                         <div data-step="choice">
-                            <button type="button" data-run="Billet" data-next="Billet-scene">
+                            <button type="button" data-run="Billet" data-next="køb-billetscene">
                                 Køb billet
                             </button>
                             <button type="button" data-run="IkkeBillet" data-next="IkkeBillet-scene">
@@ -380,6 +392,36 @@
                 </div>
                 </section>
 
+                <section id="Køb-billetscene"
+                         class="scene"
+                         data-music="chill1"
+                >
+                    <img
+                        class="scene-background"
+                        src="assets/images/scenes/scene-garden.png"
+                    >
+
+                    <div class="steps">
+                        <div data-step="say" data-speaker="Dig">
+                            Heldigt man stadig kan købe papirbilletter, især når nettet ikke virker.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Godt hvordan er det nu de virker?
+                        </div>
+
+<!--                        Interaktion med billetautomaten-->
+
+                        <div data-step="choice">
+                            <button type="button" data-run="Billet" data-next="Billet-scene">
+                                Køb billet
+                            </button>
+
+                        </div>
+                    </div>
+                </section>
+
 <!--                mangler alt-->
                 <section id="Billet-scene"
                          class="scene"
@@ -401,15 +443,23 @@
                         </div>
 
                         <div data-step="wait-click"></div>
-
                         <div data-step="say" data-speaker="Dig">
                             Nu skal jeg bare have fundet en plads,  der er altid så fyldt jo tættere på København man kommer.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Jeg ender nok med at skulle stå op.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+
                         </div>
 
                     </div>
                 </section>
 
-<!--                mangler alt-->
                 <section id="IkkeBillet-scene"
                          class="scene"
                          data-music="music-ominous"
@@ -417,12 +467,7 @@
                 >
                     <img
                         class="scene-background"
-                        src="assets/images/scenes/station%202%20clear.png"
-                    >
-                    <img
-                        class="character"
-                        data-char="abigail"
-                        src="assets/images/characters/char-abigail-neutral.png"
+                        src="assets/images/scenes/full%20train.gif"
                     >
 
                     <div class="steps">
@@ -436,7 +481,12 @@
 
                         <div data-step="wait-click"></div>
                         <div data-step="say" data-speaker="Dig">
-                            Jeg skal bare sidde tæt på torilettet
+                            Jeg skal bare have en plads.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Jeg kan se en derhenne.
                         </div>
 
                         <div data-step="wait-click"></div>
@@ -446,24 +496,85 @@
 
                         <div data-step="wait-click"></div>
                         <div data-step="say" data-speaker="Dig">
-                            Er det endestationen?
+                            Jeg kan tage det lidt med ro. Der plejer alligevel ikke at blive tjekket billetter så tit.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Kontrollør" data-color="#15AAC8">
+                            Nye rejsende? Billetter? Nye rejsende?
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="choice">
+                            <button data-run="altokay">Bevar roen</button>
+                            <button data-run="F">Fuck...</button>
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Kontrollør" data-color="#15AAC8">
+                            Billet.
                         </div>
 
                         <div data-step="wait-click"></div>
                         <div data-step="say" data-speaker="Dig">
-                            Det er det ikke... Men skal jeg stå af her alligevel? Der er dog kun én station tilbage.
+                            ...
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Kontrollør" data-color="#15AAC8">
+                            Billet!
                         </div>
 
                         <div data-step="choice">
-                            <button data-next="">Bliv i toget</button>
+                            <button data-run="ok">Jeg har ikke en billet</button>
+                            <button data-run="F">...</button>
+                            <button data-run="ignoreralt">Ignorer</button>
+                            <button data-run="løgn">Lyv</button>
                         </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Kontrollør" data-color="#15AAC8">
+                            Hvis du ikke har en billet er det 750kr i bøde.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Typisk der altid er kontrolløre når man
+                            rentfaktisk ikke har betalt en millon for en åndsvag billet, de alligevel aldrig tjekker.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Jeg skulle ha taget det andet tog.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Hvorfor står kontrolløren bare og stirre på mig...
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            ...
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Jeg skal af det her tog!
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Jeg kan se stationen.
+                        </div>
+
                         <div data-step="choice">
-                            <button data-next="">Stå af toget</button>
+                            <button data-next="mellem-scene-valg1">Gå hen til døren</button>
                         </div>
+
                     </div>
                 </section>
 
-<!--                mangler baggrund og indhold-->
                 <section id="sidned-scene"
                     class="scene"
                     data-music="Intense2"
@@ -512,21 +623,21 @@
                             </div>
 
                             <div data-step="choice">
-                                <button data-run="ignorer">Ignorer ham</button>
-                                <button data-run="">Se irriteret på ham</button>
-                                <button data-run="tys">tys ham</button>
+                                <button data-run="ignorerham">Ignorer ham</button>
+                                <button data-run="irri">Se irriteret på ham</button>
+                                <button data-run="flabetsvar">tys ham</button>
                             </div>
 
                             <div data-step="show" data-target='[data-char="mand1"]'></div>
 
                             <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Mand" data-color="#6724ff">
-                                Hey du!
+                                Hey...
                             </div>
 
                             <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Mand" data-color="#6724ff">
-                                VED DU HVAD!?
+                                Hvor bor du henne?
                             </div>
 
                             <div data-step="wait-click"></div>
@@ -536,7 +647,7 @@
 
                             <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Mand" data-color="#6724ff">
-                                Jeg vil ikke tale til dig!
+                                Heeey! Fortæl mig det nu
                             </div>
 
                             <div data-step="wait-click"></div>
@@ -562,7 +673,7 @@
                                 <button data-run="ja">Ja</button>
                             </div>
 
-                            <div data-visible-if="Hmm" data-target='[data-char="mand1"]'></div>
+                            <div data-step="show" data-target='[data-char="mand1"]'></div>
 
                             <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Dig">
@@ -621,6 +732,184 @@
                         </div>
                 </section>
 
+                <section id="mellem-scene-valg1"
+                         class="scene"
+                         data-transition-sound="heartbeat1"
+                         data-music="Intence2"
+                >
+                    <img
+                        class="scene-background"
+                        src="assets/images/scenes/station%202%20v2%20blur.png"
+                    >
+                    <section>
+                        <div class="steps">
+
+                            <div data-step="say" data-speaker="Dig">
+                                Endelig.
+                            </div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Dig">
+                                ...
+                            </div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Dig">
+                                Nu skal jeg bare nå det andet tog.
+                            </div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Dig">
+                                ...
+                            </div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Dig">
+                                Seriøst... En kvinde med sin barnevogn...
+                            </div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Dig">
+                                Og selvfølgelig kan hun ikke komme ind af døren.
+                            </div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Dig">
+                                ...
+                            </div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Dig">
+                                Barnet hyler og skriger jo.
+                            </div>
+
+                            <div data-step="choice">
+                                <button data-run="kommentar">Kommenter</button>
+                                <button data-run="irriteret">Se irriteret på hende</button>
+                                <button data-run="VentForan">Tig stille</button>
+                            </div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Kvindestemme" data-color="#D7FF36">
+                                Bjørn, shh... rolig, vær stille, vi er inde i toget hurtigere hvis du er rolig.
+                            </div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Dig">
+                                Hun står selvfølgelig midt i døren og skal trøste barnet...
+                            </div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Dig">
+                                Jeg skal på nu!
+                            </div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Dig">
+                                Jeg er nødt til at komme med det her tog.
+                            </div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Dig">
+                                ...
+                            </div>
+
+                            <div data-step="choice">
+                                <button data-run="vent" data-next="mand-på-perron">Hvorfor kommer den der mand hen til mig...</button>
+                            </div>
+
+                        </div>
+
+                    </section>
+                </section>
+
+                <section id="mand-på-perron"
+                         class="scene"
+                         data-music="Intence1">
+                    <img
+                        class="scene-background"
+                        src="assets/images/scenes/station%202%20v2%20clear.png"
+                    >
+                    <img
+                        class="character is-hidden"
+                        data-char="mand"
+                        src="assets/images/characters/fuldmand%20alm.png"
+                    >
+                    <img
+                        class="character is-hidden"
+                        data-char="mand1"
+                        src="assets/images/characters/fuldmand%20m'rk.png"
+                    >
+                    <section>
+                        <div class="steps">
+
+                            <div data-step="choice">
+                                <button data-run="spøgr">Spøgr kvinden om hun kan flytte sig</button>
+                                <button data-run="skub">Skub hende til siden</button>
+                                <button data-run="vent">Vent</button>
+                            </div>
+
+                            <div data-step="wait-click"></div>
+
+                            <div data-step="show" data-target='[data-char="mand"]'></div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Mand" data-color="#6724ff">
+                                Hey.. Hvor skal du hen?
+                            </div>
+
+                            <div data-step="choice">
+                                <button data-run="ignorerham">Ignorer ham</button>
+                                <button data-run="flabetsvar">Til en anden station</button>
+                                <button data-run="irri">Det kommer ikke dig ved</button>
+                            </div>
+
+                            <div data-step="show" data-target='[data-char="mand1"]'></div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Dig">
+                                ...
+                            </div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Mand" data-color="#6724ff">
+                                Har du nogle småpenge på dig?
+                            </div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Dig">
+                                ...
+                            </div>
+
+                            <div data-step="choice">
+                                <button data-run="VentForan">Fint her er lidt penge</button>
+                                <button data-run="ignoreralt">Ignorer</button>
+                            </div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Mand" data-color="#6724ff">
+                                Hvor bor du henne?
+                            </div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Dig">
+                                ...
+                            </div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Dig">
+                                Godt toget kommer nu.
+                            </div>
+
+                            <div data-step="choice">
+                                <button data-next="i-toget">Stig ind i toget</button>
+                            </div>
+
+                        </div>
+
+                    </section>
+                </section>
+
                 <section id="mellem-scene"
                          class="scene"
                          data-transition-sound="heartbeat1"
@@ -633,9 +922,8 @@
                     <section>
                             <div class="steps">
 
-                                <div data-step="wait-click"></div>
                                 <div data-step="say" data-speaker="Dig">
-                                    Endestationen... Endelig.
+                                    Endelig.
                                 </div>
 
                                 <div data-step="wait-click"></div>
@@ -729,6 +1017,45 @@
                     </section>
                 </section>
 
+                <section id="i-toget"
+                         class="scene"
+                         data-music="Intence2"
+                         data-transition-sound="scary2"
+                >
+                    <img
+                        class="scene-background"
+                        src="assets/images/scenes/drunkard%20full%20train%20w%20panic.gif"
+                    >
+                    <div class="steps">
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Hvad siger klokken?
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Kl 09:59... Skønt jeg når det IKKE.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            ...
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Det tager 6 minutter herfra med toget, så jeg først derinde kl 10:06.
+                        </div>
+
+                        <div data-step="choice">
+                            <button data-run="ståAfTog3">Jeg skulle have ventet på et andet tog</button>
+                            <button data-run="ståAfTog4">...</button>
+                        </div>
+
+                        </div>
+
+                    </section>
+
                 <section id="manden-i-toget"
                          class="scene"
                          data-music="Intence1">
@@ -746,6 +1073,11 @@
                         data-char="mand1"
                         src="assets/images/characters/fuldmand%20m'rk.png"
                     >
+                    <img
+                        class="character is-hidden"
+                        data-char="faces"
+                        src="assets/images/characters/SCARY%20FACES.png"
+                    >
 
                     <section>
                         <div class="steps">
@@ -762,24 +1094,26 @@
                             </div>
 
                             <div data-step="wait-click"></div>
-                            <div data-step="say" data-speaker="Dig">
-                                Av! Han holder fast i min arm, hvad skal jeg gøre?
-                            </div>
-
-                            <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Mand" data-color="#6724ff">
                                 Hey.. Hvor skal du hen?
                             </div>
 
                             <div data-step="choice">
-                                <button data-run="ignorer">Ignorer ham</button>
-                                <button data-run="tys">Til endestationen</button>
-                                <button data-run="ignoreralt">Videre</button>
+                                <button data-run="ignorerham">Ignorer ham</button>
+                                <button data-run="flabetsvar">Til endestationen</button>
+                                <button data-run="irri">Det kommer ikke dig ved</button>
                             </div>
+
+                            <div data-step="show" data-target='[data-char="mand1"]'></div>
 
                             <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Dig">
                                 ...
+                            </div>
+
+                            <div data-step="wait-click"></div>
+                            <div data-step="say" data-speaker="Dig">
+                                Av! Han holder fast i min arm, hvad skal jeg gøre?
                             </div>
 
                             <div data-step="choice">
@@ -788,7 +1122,7 @@
                                 <button data-run="ok">Kig selvsikkert på ham</button>
                             </div>
 
-                            <div data-step="show" data-target='[data-char="mand1"]'></div>
+                            <div data-step="show" data-target='[data-char="faces"]'></div>
 
                             <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Dig">
@@ -822,7 +1156,7 @@
 
                             <div data-step="choice">
                                 <button data-run="ignoreralt">Ignorer</button>
-                                <button data-run="givpenge" data-color="#6724ff">Giv lidt flere penge</button>
+                                <button data-run="givpenge" data-color="#6724ff">Giv penge</button>
                             </div>
 
                             <div data-step="wait-ms" data-ms="2400"></div>
@@ -893,7 +1227,7 @@
                     </section>
                 </section>
 
-<!--                Mangler baggrund og en slutning mere-->
+<!--                Mangler baggrund-->
                 <section id="slutA-valg2"
                          class="scene"
                          data-hide-story-ui="true"
@@ -971,7 +1305,7 @@
                     </div>
                 </section>
 
-<!--                Mangler baggrund og en slutning mere-->
+<!--                Mangler baggrund-->
                 <section id="slutB-valg2"
                          class="scene"
                          data-hide-story-ui="true"
@@ -994,6 +1328,10 @@
                             <h2>Hvad der skete</h2>
                             <ul class="ending-summary">
                                 <li data-visible-if="builtStress">
+                                    Du gjorde dit bedste og fortsætter over til jobsamtalen.
+                                    Du når det lige til tiden! Heldigt at du er så hurtig til at løbe.
+                                </li>
+                                <li data-visible-if="Stressmedium">
                                     Du gjorde dit bedste og fortsætter over til jobsamtalen.
                                     Du kommer dog forsent og de vil ikke lukke dig ind.
                                 </li>
@@ -1019,7 +1357,57 @@
                     <div class="steps"></div>
                 </section>
 
-                <section id="slutC"
+                <section id="slutA-valg1"
+                         class="scene"
+                         data-hide-story-ui="true"
+                         data-music="music-game-over-bad"
+                         data-transition-sound="transition-glitch"
+                >
+                    <img
+                        class="scene-background"
+                        src="assets/images/scenes/scene-street-night.png"
+                    >
+
+                    <section class="ending-screen ending-screen--rough">
+                        <p class="ending-kicker">Ending B</p>
+                        <h1>Noterne var ikke det eneste, der forsvandt</h1>
+                        <p class="ending-lead">
+                            Gruppen finder nok af notesbogen til at forstå, hvad
+                            der skete, men ikke nok ro og tillid til at samle
+                            sig helt igen.
+                        </p>
+
+                        <section class="ending-card">
+                            <h2>Hvad der skete</h2>
+                            <ul class="ending-summary">
+                                <li data-visible-if-not="builtTrust">
+                                    Mistillid og pres gjorde det sværere for
+                                    gruppen at stå sammen.
+                                </li>
+                                <li data-visible-if-not="stayedFocused">
+                                    I sprang over spor eller handlede for hurtigt,
+                                    og det kostede overblik.
+                                </li>
+                                <li data-visible-if="blamedSomeone">
+                                    Beskyldningerne satte sig fast, selv efter at
+                                    sandheden kom frem.
+                                </li>
+                                <li>
+                                    Projektet overlever måske. Gruppen gør ikke
+                                    helt på samme måde.
+                                </li>
+                            </ul>
+                        </section>
+
+                        <button class="primary-button ending-button" type="button" data-run="restartStory">
+                            Prøv igen
+                        </button>
+                    </section>
+
+                    <div class="steps"></div>
+                </section>
+
+                <section id="slutB-valg1"
                          class="scene"
                          data-hide-story-ui="true"
                          data-music="music-game-over-bad"
@@ -1103,6 +1491,9 @@
     <audio id="slowtointense" preload="auto" src="assets/audio/BGM%20track%20full%20version.mp3"></audio>
     <audio id="tinnitus1" preload="auto" src="assets/audio/tinnitus%20with%20fade.mp3"></audio>
     <audio id="heartbeat1" preload="auto" src="assets/audio/heartbeat%20fastest.mp3"></audio>
+    <audio id="jumpscare" preload="auto" src="assets/audio/jumpscare%20SFX%201.mp3"></audio>
+    <audio id="scary" preload="auto" src="assets/audio/scary%20SFX%201.mp3"></audio>
+    <audio id="scary2" preload="auto" src="assets/audio/scary%20SFX%202.mp3></audio>"></audio>
     <audio id="dooropen" preload="auto" src="assets/audio/train%20doors%20open%20SFX.mp3"></audio>
     <audio id="chill1" preload="auto" src="assets/audio/BGM%20chill%201%20(vers%203).mp3"></audio>
     <audio id="høretelefonermusik" preload="auto" src="assets/audio/BGM%20chill%202%20(vers.%201).mp3"></audio>

@@ -1237,6 +1237,8 @@ export class VisualNovelEngine {
     this.clearActions();
   }
 
+
+
   /**
    * @param {HTMLElement} step
    * @param {number} token
@@ -1333,6 +1335,7 @@ export class VisualNovelEngine {
         return 'continue';
     }
   }
+
 
   /**
    * @param {HTMLElement} step

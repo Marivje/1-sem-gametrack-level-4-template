@@ -212,16 +212,16 @@ const storyActions = {
    */
 
 
-  RoligSidNed (game) {
+  RoligSidNed(game) {
     game.setState({
       statStress: game.state.statStress - 1,
       RoligSidNed: true,
     })
   },
-  VentForan (game) {
+  VentForan(game) {
     game.setState({
       statStress: game.state.statStress + 3,
-      VentForan:true,
+      VentForan: true,
     })
   },
   harRoligSidNed(game) {
@@ -231,26 +231,26 @@ const storyActions = {
   harVentForan(game) {
     return game.state.VentForan;
   },
-  irriteret (game) {
+  irriteret(game) {
     game.setState({
-      statStress: game.state.statStress -3,
-      irriteret:true,
+      statStress: game.state.statStress - 3,
+      irriteret: true,
     })
   },
   harirriteret(game) {
     return game.state.irriteret;
   },
-  vent  (game) {
+  vent(game) {
     game.setState({
-      statStress: game.state.statStress -5,
-      statAngst: game.state.statAngst -3,
-      vent:true,
+      statStress: game.state.statStress - 5,
+      statAngst: game.state.statAngst - 3,
+      vent: true,
     })
   },
   harvent(game) {
     return game.state.vent;
   },
-  altokay (game) {
+  altokay(game) {
     game.setState({
       statStress: game.state.statStress - 3,
       statAngst: game.state.statAngst - 3,
@@ -261,11 +261,11 @@ const storyActions = {
       'jeg er snart fremme ved endestationen.',
     );
   },
-  altikkeokay (game) {
+  altikkeokay(game) {
     game.setState({
       statStress: game.state.statStress + 3,
-      statAngst: game.state.statAngst +3,
-      altikkeokay:true,
+      statAngst: game.state.statAngst + 3,
+      altikkeokay: true,
     })
     game.setDialog(
       'Dig',
@@ -283,7 +283,7 @@ const storyActions = {
   valg1(game) {
     game.setState({
       statTime: game.state.statTime - 5,
-      valg1:true,
+      valg1: true,
     });
 
     return 'valg1-scene';
@@ -292,7 +292,7 @@ const storyActions = {
   valg2(game) {
     game.setState({
       statTime: game.state.statTime - 20,
-      valg2:true,
+      valg2: true,
     });
 
     return 'valg2-scene';
@@ -305,16 +305,16 @@ const storyActions = {
     return game.state.valg2;
   },
 
-  er (game) {
+  er(game) {
     game.setState({
       statAngst: game.state.statAngst + 1,
       er: true,
     })
   },
-  ikke (game) {
+  ikke(game) {
     game.setState({
       statAngst: game.state.statAngst - 1,
-      ikke:true,
+      ikke: true,
     })
   },
   harEr(game) {
@@ -328,7 +328,7 @@ const storyActions = {
   Billet(game) {
     game.setState({
       statAngst: game.state.statAngst - 3,
-      Billet:true,
+      Billet: true,
     });
 
     return 'Billet-scene';
@@ -337,7 +337,7 @@ const storyActions = {
   IkkeBillet(game) {
     game.setState({
       statAngst: game.state.statAngst + 6,
-      IkkeBillet:true,
+      IkkeBillet: true,
     });
 
     return 'IkkeBillet-scene';
@@ -350,15 +350,15 @@ const storyActions = {
     return game.state.IkkeBillet;
   },
 
-  Sidned (game) {
+  Sidned(game) {
     game.setState({
       Sidned: true,
     })
   },
-  Ståop (game) {
+  Ståop(game) {
     game.setState({
       statAngst: game.state.statAngst + 1,
-      Ståop:true,
+      Ståop: true,
     })
   },
   harSidned(game) {
@@ -368,7 +368,7 @@ const storyActions = {
   harStåop(game) {
     return game.state.Ståop;
   },
-  kommentar (game) {
+  kommentar(game) {
     game.setState({
       statAngst: game.state.statAngst + 1,
       statStress: game.state.statStress + 5,
@@ -384,33 +384,35 @@ const storyActions = {
   harkommentar(game) {
     return game.state.kommentar;
   },
-  spøgr (game) {
+  spøgr(game) {
     game.setState({
-      statAngst: game.state.statAngst -2,
-      statStress: game.state.statStress -2,
+      statAngst: game.state.statAngst - 2,
+      statStress: game.state.statStress - 2,
       spøgr: true,
     });
 
     game.setDialog(
       'Kvindestemme',
       'KAN DU IKKE SE JEG HAR TRAVLT',
+      '#D7FF36',
     );
     game.playSfx('tinnitus1');
   },
   harspøgr(game) {
     return game.state.spøgr;
   },
-  ok (game) {
+  ok(game) {
     game.setState({
       statAngst: game.state.statAngst + 1,
       statStress: game.state.statStress + 2,
       ok: true,
     });
+    game.playSfx('scary');
   },
   harok(game) {
     return game.state.ok;
   },
-  skub (game) {
+  skub(game) {
     game.setState({
       statAngst: game.state.statAngst + 4,
       statStress: game.state.statStress + 2,
@@ -420,14 +422,15 @@ const storyActions = {
     game.setDialog(
       'Kvindestemme',
       'Hov hov! husk dine mannere.',
+      '#D7FF36',
     );
-    game.playSfx('tinnitus1');
+    game.playSfx('heartbeat1');
   },
   harskub(game) {
     return game.state.skub;
   },
 
-  armtil (game) {
+  armtil(game) {
     game.setState({
       statAngst: game.state.statAngst + 5,
       statStress: game.state.statStress + 5,
@@ -438,21 +441,22 @@ const storyActions = {
       'Dig',
       'Han holder godt fast, jeg kan ikke få ham til at give slip...',
     );
-    game.playSfx('heartbeat1');
+    game.playSfx('scary');
   },
 
-  ingenting (game) {
+  ingenting(game) {
     game.setState({
       statAngst: game.state.statAngst + 2,
       statStress: game.state.statStress + 2,
-      ingenting:true,
+      ingenting: true,
     });
 
     game.setDialog(
       'Dig',
       'Det gør mere og mere ondt, alle kigger på mig.',
     );
-    game.playSfx('tinnitus1');
+    game.playSfx('scary');
+
   },
   hararmtil(game) {
     return game.state.armtil;
@@ -460,6 +464,40 @@ const storyActions = {
 
   haringenting(game) {
     return game.state.ingenting;
+  },
+  F(game) {
+    game.setState({
+      statAngst: game.state.statAngst + 4,
+      statStress: game.state.statStress + 4,
+      F: true,
+    });
+
+    game.setDialog(
+      'Dig',
+      'Jeg er ligeglad.',
+    );
+    game.playSfx('scary');
+
+  },
+  harF(game) {
+    return game.state.F;
+  },
+  løgn(game) {
+    game.setState({
+      statAngst: game.state.statAngst + 3,
+      statStress: game.state.statStress + 2,
+      løgn: true,
+    });
+
+    game.setDialog(
+      'Dig',
+      'Jeg har en på min mobil, men jeg har ikke noget net.',
+    );
+    game.playSfx('heartbeat1');
+
+  },
+  harløgn(game) {
+    return game.state.løgn;
   },
 
   ignorer (game) {
@@ -492,6 +530,64 @@ const storyActions = {
   hartys(game) {
     return game.state.tys;
   },
+  forsinket (game) {
+    game.setState({
+      statAngst: game.state.statAngst + 2,
+      statStress: game.state.statStress - 1,
+      statTime: game.state.statTime - 15,
+      forsinket: true,
+    });
+
+    game.setDialog(
+      'Dig',
+      'Pis mit tog er kørt... Så skal jeg vente på det næste...',
+    );
+  },
+  harforsinket(game) {
+    return game.state.forsinket;
+  },
+
+  ignorerham (game) {
+    game.setState({
+      statAngst: game.state.statAngst + 1,
+      ignorerham: true,
+    });
+
+    game.setDialog(
+      'Dig',
+      'Alt er fint...',
+    );
+    game.playSfx('jumpscare');
+  },
+  flabetsvar (game) {
+    game.setState({
+      statAngst: game.state.statAngst + 2,
+      statStress: game.state.statStress - 1,
+      flabetsvar: true,
+    });
+
+    game.setDialog(
+      'Mand',
+      'Ubehøvlet!',
+      '#6724ff',
+    );
+    game.playSfx('jumpscare');
+  },
+  irri (game) {
+    game.playSfx('jumpscare');
+
+  },
+  harignorerham(game) {
+    return game.state.ignorerham;
+  },
+  harirri(game) {
+    return game.state.irri;
+  },
+
+  harflabetsvar(game) {
+    return game.state.flabetsvar;
+  },
+
 
   ståAfTog (game) {
     const sfx = game.playSfx('dooropen');
@@ -529,6 +625,26 @@ const storyActions = {
       };
     }
   },
+  ståAfTog3 (game) {
+
+    const sfx = game.playSfx('dooropen');
+
+    if (sfx) {
+      sfx.onended = () => {
+        game.goTo('slutA-valg1');
+      };
+    }
+  },
+  ståAfTog4 (game) {
+
+    const sfx = game.playSfx('dooropen');
+
+    if (sfx) {
+      sfx.onended = () => {
+        game.goTo('slutB-valg1');
+      };
+    }
+  },
   øjnkontakt (game) {
     game.setState({
       statAngst: game.state.statStress + 5,
@@ -549,7 +665,7 @@ const storyActions = {
   ignoreralt (game) {
     game.setState({
       statStress: game.state.statStress + 0,
-      ikke:true,
+      ignoreralt:true,
     })
     game.setDialog(
       'Dig',
@@ -575,6 +691,7 @@ const storyActions = {
     game.setDialog(
       'Mand',
       'Ej hvor er det bare RIGTIG sødt af dig.',
+      '#6724ff',
     );
   },
   hargivpenge(game) {
@@ -589,6 +706,7 @@ const storyActions = {
       'Dig',
       'Jeg ved godt toget bliver aflyst af og til...',
     );
+    game.playSfx('scary');
   },
   harja(game) {
     return game.state.ja;
@@ -614,6 +732,7 @@ const storyActions = {
     game.setDialog(
       'Mand',
       'Ej hvor er du dum.',
+      '#6724ff',
     );
   },
   harnej(game) {
@@ -627,12 +746,12 @@ const storyActions = {
     game.setDialog(
       'Mand',
       'SVAR MIG!',
+      '#6724ff',
     );
   },
   harHmm(game) {
     return game.state.Hmm;
   },
-
 
   /**
    * @param {StoryEngine} game
