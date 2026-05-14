@@ -160,7 +160,7 @@ h2 {
 
 .item {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   object-fit: contain;
   filter: drop-shadow(0 14px 16px rgba(0, 0, 0, 0.22));
   opacity: 1;
@@ -185,15 +185,26 @@ h2 {
 
 .scene [data-run]:not(button):not(.is-hidden):hover,
 .scene [data-run]:not(button):not(.is-hidden):focus-visible {
-  transform: scale(1.04);
+  transform: scale(1.09);
   filter:
-    drop-shadow(0 0 0.9rem rgba(255, 249, 196, 0.95))
-    drop-shadow(0 0.8rem 1rem rgba(0, 0, 0, 0.28));
+    drop-shadow(0 0 0.9rem rgb(119, 173, 255))
+    drop-shadow(0 0.8rem 1rem rgb(103, 36, 255));
   outline: none;
 }
 
-#intro-scene,
-#living-room-search-scene {
+#return-scene {
+  .ticket[data-item="ticket"] {
+    position: absolute;
+
+    bottom: 247px;
+    left: 849px;
+
+    z-index: 5;
+
+    cursor: pointer;
+  }
+}
+#køb-billetscene {
   .character[data-char="abigail"] {
     left: 8%;
     bottom: -10rem;
@@ -212,13 +223,16 @@ h2 {
     width: 118px;
   }
 
-  .item[data-item="mug"] {
-    left: 39%;
-    bottom: 30%;
-    width: 82px;
-    transform: translateX(-50%);
-  }
+  .ticket[data-item="ticket"] {
+      position: absolute;
 
+      bottom: 247px;
+      left: 849px;
+
+      z-index: 5;
+
+      cursor: pointer;
+    }
   .item[data-item="phone"] {
     right: 30%;
     bottom: 39%;
@@ -238,7 +252,15 @@ h2 {
 .character[data-char="faces"] {
   bottom: -2rem;
 }
-
+#IkkeBillet-scene,
+.character[data-char="kontrollør"] {
+  bottom: -2rem;
+  z-index: 2;
+}
+.character[data-char="kontrollør1"] {
+  bottom: -2rem;
+  z-index: 2;
+}
 
   .item[data-item="headphones"] {
     left: 37%;
@@ -468,14 +490,14 @@ h2 {
   align-content: start;
   gap: 0.75rem;
   border-color: var(--dialog-border-color);
-  background: rgb(232, 232, 232, 0.4);
+  background: rgba(232, 232, 232, 0.5);
 }
 
 .speaker-label {
   width: fit-content;
   padding: 0.35rem 0.65rem;
   border-radius: 8px;
-  background-color: rgba(221, 215, 221, 0.4);
+  background-color: rgba(221, 215, 221, 0.5);
   font-size: 1.40rem;
   font-weight: 700;
   font-family: "serif";
@@ -671,8 +693,8 @@ h2 {
 
 .start:hover {
   transform: translateY(-10px) scale(1.08);
-  background: linear-gradient(135deg, #77adff, #6724ff);
-  color: #f3f3f3;
+  background: linear-gradient(135deg, #befdda, #67ff6b);
+  color: #0f1303;
   box-shadow: 0 15px 40px rgb(176, 197, 236);
 }
 
@@ -697,8 +719,8 @@ h2 {
 
 .credits:hover {
   transform: translateY(-10px) scale(1.08);
-  background: linear-gradient(135deg, #77adff, #6724ff);
-  color: #f3f3f3;
+  background: linear-gradient(135deg, #befdda, #67ff6b);
+  color: #0f1303;
   box-shadow: 0 15px 40px rgb(176, 197, 236);
 }
 .tilbage {
@@ -721,8 +743,8 @@ h2 {
 
 .tilbage:hover {
   transform: translateY(-10px) scale(1.08);
-  background: linear-gradient(135deg, #77adff, #6724ff);
-  color: #f3f3f3;
+  background: linear-gradient(135deg, #befdda, #67ff6b);
+  color: #0f1303;
   box-shadow: 0 15px 40px rgb(176, 197, 236);
 
   /* Animation */
@@ -754,8 +776,8 @@ h2 {
 
 .kliklyd:hover {
   transform: translateY(-10px) scale(1.08);
-  background: linear-gradient(135deg, #77adff, #6724ff);
-  color: #f3f3f3;
+  background: linear-gradient(135deg, #befdda, #67ff6b);
+  color: #0f1303;
   box-shadow: 0 15px 40px rgb(176, 197, 236);
 }
 .credits-screen {
@@ -859,3 +881,4 @@ h2 {
   background-color: rgba(243, 243, 243, 0.5);
   border-radius: 10px;
 }
+

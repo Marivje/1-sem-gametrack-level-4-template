@@ -20,7 +20,7 @@
                          data-music="slowtointense">
 
                     <div class="baggrund">
-                        <img src="assets/images/scenes/station%202%20blur.png">
+                        <img src="assets/images/scenes/start.png">
                     </div>
 
                     <section class="intro-screen">
@@ -52,7 +52,7 @@
                          data-hide-story-ui="true">
 
                     <div class="baggrundcredits">
-                        <img src="assets/images/scenes/station%202%20blur.png">
+                        <img src="assets/images/scenes/credit.png">
                     </div>
 
                     <section class="credits-screen">
@@ -68,7 +68,7 @@
                 </div>
                     <div class="pgroup3">
                     <p class="kodeO">KODE</p>
-                        <p class="kode">Tak til Marie for det fine stykke arbejde med koden</p>
+                        <p class="kode">Tak til Marie for det fine stykke arbejde med koden og historien</p>
                 </div>
                         <div class="two" data-step="choice">
                             <button class="tilbage" type="button" data-run="tilbage" data-next="intro-scene">
@@ -307,7 +307,7 @@
                         </div>
 
                         <div data-step="choice">
-                            <button type="button" data-run="Billet" data-next="køb-billetscene">
+                            <button type="button" data-run="Billet">
                                 Køb billet
                             </button>
                             <button type="button" data-run="IkkeBillet" data-next="IkkeBillet-scene">
@@ -392,13 +392,65 @@
                 </div>
                 </section>
 
-                <section id="Køb-billetscene"
+                <section id="return-scene"
+                         class="scene"
+                         data-music="chill2"
+                >
+                    <img
+                        class="ticket"
+                        data-run="pickupTicket"
+                        data-item="ticket"
+                        data-visible-if="canShowTicket"
+                        src="assets/images/items/ticket.png"
+                    >
+                    <img
+                        class="scene-background"
+                        src="assets/images/scenes/billet%20automat.png"
+                    >
+
+                    <div class="steps">
+
+                        <div data-step="choice">
+                            <button
+                                data-run="showticket">
+                                Køb billet
+                            </button>
+                        </div>
+
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Det var heldigvis ikke så kompliceret.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Nu skal jeg bare nå mit tog.
+                        </div>
+
+                        <div data-step="choice">
+                            <button data-run="goToTrain">
+                                Gå ind i toget
+                            </button>
+                        </div>
+
+                    </div>
+                </section>
+
+                <section id="køb-billetscene"
                          class="scene"
                          data-music="chill1"
                 >
                     <img
+                    class="ticket"
+                    data-run="pickupTicket"
+                    data-item="ticket"
+                    data-visible-if="canShowTicket"
+                    src="assets/images/items/ticket.png"
+                >
+                    <img
                         class="scene-background"
-                        src="assets/images/scenes/scene-garden.png"
+                        src="assets/images/scenes/billet%20automat.png"
                     >
 
                     <div class="steps">
@@ -411,14 +463,40 @@
                             Godt hvordan er det nu de virker?
                         </div>
 
-<!--                        Interaktion med billetautomaten-->
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Noget med at taste ind hvor jeg skal hen.. og så...
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Godt! Jeg tror det virker.
+                        </div>
 
                         <div data-step="choice">
-                            <button type="button" data-run="Billet" data-next="Billet-scene">
-                                Køb billet
-                            </button>
-
+                        <button
+                            data-run="showticket">
+                            Køb billet
+                        </button>
                         </div>
+
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Det var heldigvis ikke så kompliceret.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Dig">
+                            Nu skal jeg bare nå mit tog.
+                        </div>
+
+                        <div data-step="choice">
+                        <button data-run="goToTrain">
+                            Gå ind i toget
+                        </button>
+                        </div>
+
                     </div>
                 </section>
 
@@ -467,7 +545,18 @@
                 >
                     <img
                         class="scene-background"
-                        src="assets/images/scenes/full%20train.gif"
+                        src="assets/images/scenes/full%20train%20w%20panic.gif"
+                    >
+
+                    <img
+                        class="character is-hidden"
+                        data-char="kontrollør"
+                        src="assets/images/characters/KONTROLØR%20ALM.png"
+                    >
+                    <img
+                        class="character is-hidden"
+                        data-char="kontrollør1"
+                        src="assets/images/characters/KONTROLØR%20CREEPY.png"
                     >
 
                     <div class="steps">
@@ -491,12 +580,12 @@
 
                         <div data-step="wait-click"></div>
                         <div data-step="say" data-speaker="Dig">
-                            Der er stadig ingen kontrolløre.
+                            Der er stadig ingen kontrolløre, håber ikke der pludselig kommer en.
                         </div>
 
                         <div data-step="wait-click"></div>
                         <div data-step="say" data-speaker="Dig">
-                            Jeg kan tage det lidt med ro. Der plejer alligevel ikke at blive tjekket billetter så tit.
+                            Så kan tage det lidt med ro. Der plejer alligevel ikke at blive tjekket billetter så tit.
                         </div>
 
                         <div data-step="wait-click"></div>
@@ -504,13 +593,13 @@
                             Nye rejsende? Billetter? Nye rejsende?
                         </div>
 
-                        <div data-step="wait-click"></div>
                         <div data-step="choice">
                             <button data-run="altokay">Bevar roen</button>
                             <button data-run="F">Fuck...</button>
                         </div>
 
-                        <div data-step="wait-click"></div>
+                        <div data-step="show" data-target='[data-char="kontrollør"]'></div>
+
                         <div data-step="say" data-speaker="Kontrollør" data-color="#15AAC8">
                             Billet.
                         </div>
@@ -532,9 +621,41 @@
                             <button data-run="løgn">Lyv</button>
                         </div>
 
+                        <div data-step="show" data-target='[data-char="kontrollør1"]'></div>
+
+                        <div data-step="say" data-speaker="Kontrollør" data-color="#15AAC8">
+                            Hvis du ikke har en billet...
+                        </div>
+
                         <div data-step="wait-click"></div>
                         <div data-step="say" data-speaker="Kontrollør" data-color="#15AAC8">
-                            Hvis du ikke har en billet er det 750kr i bøde.
+                            Kommer du til at fortryde det.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Kontrollør" data-color="#15AAC8">
+                            Det sker af og til at personer...
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Kontrollør" data-color="#15AAC8">
+                            ...
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Kontrollør" data-color="#15AAC8">
+                            En bøde på 750kr, fordi du ikke har en billet. VÆRSGO.
+                        </div>
+
+                        <div data-step="wait-click"></div>
+                        <div data-step="say" data-speaker="Kontrollør" data-color="#15AAC8">
+                            Husk at se dig for, når d.r kom..r t..
+                        </div>
+
+                        <div data-step="choice">
+                            <button data-run="altokay">Dyb indånding..</button>
+                            <button data-run="basestatsmere">Jeg tror jeg har fucket up</button>
+                            <button data-run="basestats">...</button>
                         </div>
 
                         <div data-step="wait-click"></div>
@@ -545,7 +666,7 @@
 
                         <div data-step="wait-click"></div>
                         <div data-step="say" data-speaker="Dig">
-                            Jeg skulle ha taget det andet tog.
+                            Jeg skulle have taget det andet tog.
                         </div>
 
                         <div data-step="wait-click"></div>
@@ -595,8 +716,6 @@
                     >
                         <div class="steps">
 
-                            <div data-step="show" data-target='[data-char="mand"]'></div>
-
                             <div data-step="say" data-speaker="Dig">
                                 Oh... han kigger på mig. Hvorfor smiler han?
                                 Han har tydeligvis ikke set at jeg har høretelefoner i...
@@ -606,6 +725,8 @@
                             <div data-step="say" data-speaker="Dig">
                                 Taler han til mig?
                             </div>
+
+                            <div data-step="show" data-target='[data-char="mand"]'></div>
 
                             <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Mand" data-color="#6724ff">
@@ -637,7 +758,7 @@
 
                             <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Mand" data-color="#6724ff">
-                                Hvor bor du henne?
+                                Fortæl mig hvor du bor henne?
                             </div>
 
                             <div data-step="wait-click"></div>
@@ -647,7 +768,7 @@
 
                             <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Mand" data-color="#6724ff">
-                                Heeey! Fortæl mig det nu
+                                Fortæl mig det nu
                             </div>
 
                             <div data-step="wait-click"></div>
@@ -657,7 +778,7 @@
 
                             <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Dig">
-                                Ej hvor er det ubehageligt.
+                                Hvad skal jeg gøre.
                             </div>
 
                             <div data-step="show" data-target='[data-char="mand"]'></div>
@@ -811,11 +932,11 @@
 
                             <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Dig">
-                                ...
+                                Hvorfor kommer den der mand hen til mig...
                             </div>
 
                             <div data-step="choice">
-                                <button data-run="vent" data-next="mand-på-perron">Hvorfor kommer den der mand hen til mig...</button>
+                                <button data-run="vent" data-next="mand-på-perron">...</button>
                             </div>
 
                         </div>
@@ -843,13 +964,15 @@
                     <section>
                         <div class="steps">
 
-                            <div data-step="choice">
-                                <button data-run="spøgr">Spøgr kvinden om hun kan flytte sig</button>
-                                <button data-run="skub">Skub hende til siden</button>
-                                <button data-run="vent">Vent</button>
+                            <div data-step="say" data-speaker="Dig">
+                                Han kommer tættere på mig.
                             </div>
 
-                            <div data-step="wait-click"></div>
+                            <div data-step="choice">
+                                <button data-run="spøgr">Spøgr kvinden om hun kan flytte sig, så du kan komme væk</button>
+                                <button data-run="skub">Skub hende til siden, for at komme væk</button>
+                                <button data-run="vent">Vent, manden skal sikker bare forbi</button>
+                            </div>
 
                             <div data-step="show" data-target='[data-char="mand"]'></div>
 
@@ -972,7 +1095,6 @@
                                     <button data-run="VentForan">Tig stille</button>
                                 </div>
 
-                                <div data-step="wait-click"></div>
                                 <div data-step="say" data-speaker="Kvindestemme" data-color="#D7FF36">
                                     Bjørn, shh... rolig, vær stille, vi er ude af toget hurtigere hvis du er rolig.
                                 </div>
@@ -1051,7 +1173,6 @@
                             <button data-run="ståAfTog3">Jeg skulle have ventet på et andet tog</button>
                             <button data-run="ståAfTog4">...</button>
                         </div>
-
                         </div>
 
                     </section>
@@ -1227,16 +1348,14 @@
                     </section>
                 </section>
 
-<!--                Mangler baggrund-->
                 <section id="slutA-valg2"
                          class="scene"
                          data-hide-story-ui="true"
-                         data-music="start"
-                         data-transition-sound="dooropen"
+                         data-music="badending"
                 >
                     <img
                         class="scene-background"
-                        src="assets/images/scenes/scene-street-night.png"
+                        src="assets/images/scenes/END.png"
                     >
 
                     <section class="ending-screen ending-screen--rough">
@@ -1305,19 +1424,18 @@
                     </div>
                 </section>
 
-<!--                Mangler baggrund-->
                 <section id="slutB-valg2"
                          class="scene"
                          data-hide-story-ui="true"
-                         data-music="start"
-                         data-transition-sound="dooropen"
+                         data-music="okayending"
                 >
                     <img
                         class="scene-background"
-                        src="assets/images/scenes/scene-street-night.png"
+                        src="assets/images/scenes/END.png"
                     >
 
                     <section class="ending-screen ending-screen--rough">
+
                         <p class="ending-kicker">Ending B</p>
                         <h1>Kan du stadig nå det?</h1>
                         <p class="ending-lead">
@@ -1360,41 +1478,42 @@
                 <section id="slutA-valg1"
                          class="scene"
                          data-hide-story-ui="true"
-                         data-music="music-game-over-bad"
-                         data-transition-sound="transition-glitch"
+                         data-music="badending"
+                         data-transition-sound="heartbeat1"
                 >
                     <img
                         class="scene-background"
-                        src="assets/images/scenes/scene-street-night.png"
+                        src="assets/images/scenes/END.png"
                     >
 
                     <section class="ending-screen ending-screen--rough">
-                        <p class="ending-kicker">Ending B</p>
-                        <h1>Noterne var ikke det eneste, der forsvandt</h1>
+                        <p class="ending-kicker">Ending C</p>
+                        <h1>Hvordan var togrejsen?</h1>
                         <p class="ending-lead">
-                            Gruppen finder nok af notesbogen til at forstå, hvad
-                            der skete, men ikke nok ro og tillid til at samle
-                            sig helt igen.
+                            Du ser dig omkring efter du er ankommet til endestationen. Kan du stadig nå jobsamtalen?
                         </p>
 
                         <section class="ending-card">
                             <h2>Hvad der skete</h2>
                             <ul class="ending-summary">
-                                <li data-visible-if-not="builtTrust">
-                                    Mistillid og pres gjorde det sværere for
-                                    gruppen at stå sammen.
+                                <li data-visible-if="builtStress">
+                                    Du gjorde dit bedste og fortsætter over til jobsamtalen.
+                                    Du når det lige til tiden! Heldigt at du er så hurtig til at løbe.
                                 </li>
-                                <li data-visible-if-not="stayedFocused">
-                                    I sprang over spor eller handlede for hurtigt,
-                                    og det kostede overblik.
+                                <li data-visible-if="Stressmedium">
+                                    Du gjorde dit bedste og fortsætter over til jobsamtalen.
+                                    Du kommer dog forsent og de vil ikke lukke dig ind.
                                 </li>
-                                <li data-visible-if="blamedSomeone">
-                                    Beskyldningerne satte sig fast, selv efter at
-                                    sandheden kom frem.
+                                <li data-visible-if="Stress">
+                                    Du kommer ud af toget og ser hen mod stedet for din jobsamtale. Du har
+                                    hovedepine og pletter for øjenene, men begynder at gå.
+                                    Din hovedepine tager til, dit hjerte niver og tårene tiller ned af dine kinder.
                                 </li>
-                                <li>
-                                    Projektet overlever måske. Gruppen gør ikke
-                                    helt på samme måde.
+                                <li data-visible-if="100">
+                                    Du stiger ud af toget og ser dig omkring. Svimmelhed og intens smerte i hjertet tager til.
+                                    Du mærker hvordan en let hovedepine langsomt bevæger sig op over dit øje og hvordan en tåre triller ned ad din ene kind.
+                                    Lidt henne af perronen ser du togføreren. Han ser hen mod dig med et bekymret ansigtsudtryk...
+                                    Det sortner for øjenene af dig, du høre en svagt råb og med det, går det op for dig at du er togkontrolørreren.
                                 </li>
                             </ul>
                         </section>
@@ -1410,41 +1529,38 @@
                 <section id="slutB-valg1"
                          class="scene"
                          data-hide-story-ui="true"
-                         data-music="music-game-over-bad"
-                         data-transition-sound="transition-glitch"
+                         data-music="badending"
+                         data-transition-sound="heartbeat1"
                 >
                     <img
                         class="scene-background"
-                        src="assets/images/scenes/scene-street-night.png"
+                        src="assets/images/scenes/END.png"
                     >
 
                     <section class="ending-screen ending-screen--rough">
-                        <p class="ending-kicker">Ending B</p>
-                        <h1>Noterne var ikke det eneste, der forsvandt</h1>
+                        <p class="ending-kicker">Ending D</p>
+                        <h1>Jobsamtalen venter på dig, men kan du nå det?</h1>
                         <p class="ending-lead">
-                            Gruppen finder nok af notesbogen til at forstå, hvad
-                            der skete, men ikke nok ro og tillid til at samle
-                            sig helt igen.
+                            Du Mærker dit hjerte banke i brystet på dig. Omkring perronen strømmer edt med travle mennesker. Det eneste du kan tænke på er om du stadig kan nå jobsamtalen.
                         </p>
 
                         <section class="ending-card">
                             <h2>Hvad der skete</h2>
                             <ul class="ending-summary">
-                                <li data-visible-if-not="builtTrust">
-                                    Mistillid og pres gjorde det sværere for
-                                    gruppen at stå sammen.
+                                <li data-visible-if="Angst">
+                                    Du kan høre hvordan dit hjerne hammre i brystet på dig, det sortner for øjenene og du er kommet forsent til jobsamtalen. Du bliver nødt til at tage på hospitalet da du har ondt i hjertet og har svært ved at holde dig oppe.
                                 </li>
-                                <li data-visible-if-not="stayedFocused">
-                                    I sprang over spor eller handlede for hurtigt,
-                                    og det kostede overblik.
+                                <li data-visible-if="Angstmedium">
+                                    Du har hjertebanken, er svimmel og har svært ved at holde dig stående. Du løvber alligevel hen mod jobsamtalem, men når det ikke..
                                 </li>
-                                <li data-visible-if="blamedSomeone">
-                                    Beskyldningerne satte sig fast, selv efter at
-                                    sandheden kom frem.
+                                <li data-visible-if="builtAngst">
+                                    Du løber hen til stedet for din jobsamtale og når det! De var heldigvis forsinkede med deres samtaler.
                                 </li>
-                                <li>
-                                    Projektet overlever måske. Gruppen gør ikke
-                                    helt på samme måde.
+                                <li data-visible-if="200">
+                                    Du kommer ud af toget og ser dig omkring. Mængden af mennekser føles som sorte skygger
+                                    der alle ser mod dig. Du mærker hvordan vinden tager fat i huden på dig og hvordan dit hjerte banker højere og højere.
+                                    Du kan ikke længere styrre din vjertrækning, svedperler samler sig på din ryg og lyden af støj omkring dig bliver tydeligere.
+                                    Øjene der går forbi, griner, din hals trækker sig sammen og du hiver efter vejeret. Det eneste du høre er dit eget hjerteslag.
                                 </li>
                             </ul>
                         </section>
@@ -1493,9 +1609,12 @@
     <audio id="heartbeat1" preload="auto" src="assets/audio/heartbeat%20fastest.mp3"></audio>
     <audio id="jumpscare" preload="auto" src="assets/audio/jumpscare%20SFX%201.mp3"></audio>
     <audio id="scary" preload="auto" src="assets/audio/scary%20SFX%201.mp3"></audio>
-    <audio id="scary2" preload="auto" src="assets/audio/scary%20SFX%202.mp3></audio>"></audio>
+    <audio id="okayending" preload="auto" src="assets/audio/BGM%20okay%20ending%20(vers%201).mp3"></audio>
+    <audio id="badending" preload="auto" src="assets/audio/BGM%20bad%20ending%20(vers%201).mp3"></audio>
+    <audio id="scary2" preload="auto" src="assets/audio/scary%20SFX%202.mp3>"></audio>
     <audio id="dooropen" preload="auto" src="assets/audio/train%20doors%20open%20SFX.mp3"></audio>
     <audio id="chill1" preload="auto" src="assets/audio/BGM%20chill%201%20(vers%203).mp3"></audio>
+    <audio id="chill2" preload="auto" src="assets/audio/BGM%20chill%202%20(vers.%201).mp3"></audio>
     <audio id="høretelefonermusik" preload="auto" src="assets/audio/BGM%20chill%202%20(vers.%201).mp3"></audio>
     <audio id="trainoutside1" preload="auto" src="assets/audio/train%20outside%20SFX%201.mp3"></audio>
     <audio id="Trainoutside2" preload="auto" src="assets/audio/train%20outside%20SFX%202.mp3"></audio>

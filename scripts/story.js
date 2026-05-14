@@ -11,7 +11,9 @@ const storyInitialState = {
   statTime: 0,
   statAngst: 0,
   statStress: 0,
-  itemHasNotepad: false,
+  itemHasTicket: false,
+  ticketVisible: false,
+  canGoNext: false,
   øjnkontakt: false,
   ikkeøjnkontakt: false,
   ignoreralt: false,
@@ -147,6 +149,15 @@ const storyConditions = {
     return game.state.storyAccusedSomeone;
   },
 
+  shouldShowTicket(game) {
+    return !game.state.itemHasTicket;
+  },
+  canShowTicket(game) {
+    return game.state.ticketVisible && !game.state.itemHasTicket;
+  },
+  canGoNext(game) {
+    return game.state.itemHasTicket;
+  },
   /**
    * @param {StoryEngine} game
    * @returns {boolean}
@@ -211,6 +222,54 @@ const storyActions = {
    * @returns {void}
    */
 
+  showticket(game) {
+    game.setState({
+      ticketVisible: true,
+    });
+
+    game.setDialog(
+      'Dig',
+      'Her kommer billetten',
+      '#ffffff'
+    );
+
+    game.playSfx('heartbeat1');
+  },
+
+    pickupTicket (game) {
+    game.setState({
+      itemHasTicket: true,
+    });
+
+    game.setDialog(
+      'Dig',
+      'Godt her er den.',
+    );
+
+
+  },
+
+  goToTrain(game) {
+
+    if (!game.state.itemHasTicket) {
+
+      game.setState({
+        ticketVisible: true,
+      });
+
+      game.setDialog(
+        'Dig',
+        'Jeg skal have en billet først.',
+        '#ffaaaa'
+      );
+
+      game.playSfx('scary');
+
+      return 'return-scene';
+    }
+
+    return 'Billet-scene';
+  },
 
   RoligSidNed(game) {
     game.setState({
@@ -249,6 +308,20 @@ const storyActions = {
   },
   harvent(game) {
     return game.state.vent;
+  },
+  basestats(game) {
+    game.setState({
+      statStress: game.state.statStress + 3,
+      statAngst: game.state.statAngst + 3,
+      basestats: true,
+    })
+  },
+  basestatsmere(game) {
+    game.setState({
+      statStress: game.state.statStress + 5,
+      statAngst: game.state.statAngst + 5,
+      basestats: true,
+    })
   },
   altokay(game) {
     game.setState({
@@ -331,7 +404,7 @@ const storyActions = {
       Billet: true,
     });
 
-    return 'Billet-scene';
+    return 'køb-billetscene';
   },
 
   IkkeBillet(game) {
@@ -477,11 +550,11 @@ const storyActions = {
       'Jeg er ligeglad.',
     );
     game.playSfx('scary');
+  },
+  mandscary(game) {
+    game.playSfx('scary');
+  },
 
-  },
-  harF(game) {
-    return game.state.F;
-  },
   løgn(game) {
     game.setState({
       statAngst: game.state.statAngst + 3,
@@ -493,7 +566,7 @@ const storyActions = {
       'Dig',
       'Jeg har en på min mobil, men jeg har ikke noget net.',
     );
-    game.playSfx('heartbeat1');
+    game.playSfx('jumpscare');
 
   },
   harløgn(game) {
