@@ -229,7 +229,7 @@ const storyActions = {
 
     game.setDialog(
       'Dig',
-      'Her kommer billetten',
+      'Her kommer billetten.',
       '#ffffff'
     );
 
@@ -243,7 +243,7 @@ const storyActions = {
 
     game.setDialog(
       'Dig',
-      'Godt her er den.',
+      'Godt, her er den.',
     );
 
 
@@ -269,6 +269,16 @@ const storyActions = {
     }
 
     return 'Billet-scene';
+  },
+
+  ticketkontrollør(game) {
+    game.setDialog(
+      'Dig',
+      'F-fuck, hvor er den!?',
+      '#ffffff'
+    );
+
+    game.playSfx('heartbeat1');
   },
 
   RoligSidNed(game) {
@@ -331,7 +341,7 @@ const storyActions = {
     })
     game.setDialog(
       'Dig',
-      'jeg er snart fremme ved endestationen.',
+      'Jeg er snart fremme ved endestationen.',
     );
   },
   altikkeokay(game) {
@@ -342,7 +352,7 @@ const storyActions = {
     })
     game.setDialog(
       'Dig',
-      'Hvad var det nu jeg skulle i dag? Jeg kan ikke tænke på noget, mit hovede gør ondt...',
+      'Hvad var det nu jeg skulle i dag? Jeg kan ikke fokusere. Mit hoved gør ondt...',
     );
   },
   haraltokay(game) {
@@ -466,7 +476,7 @@ const storyActions = {
 
     game.setDialog(
       'Kvindestemme',
-      'KAN DU IKKE SE JEG HAR TRAVLT',
+      'KAN DU IKKE SE, AT JEG ER MIDT I NOGET!?',
       '#D7FF36',
     );
     game.playSfx('tinnitus1');
@@ -494,7 +504,7 @@ const storyActions = {
 
     game.setDialog(
       'Kvindestemme',
-      'Hov hov! husk dine mannere.',
+      'Hov hov! Tal pænt!',
       '#D7FF36',
     );
     game.playSfx('heartbeat1');
@@ -512,7 +522,7 @@ const storyActions = {
 
     game.setDialog(
       'Dig',
-      'Han holder godt fast, jeg kan ikke få ham til at give slip...',
+      'Han holder godt fast. Jeg kan ikke få ham til at give slip...',
     );
     game.playSfx('scary');
   },
@@ -526,7 +536,7 @@ const storyActions = {
 
     game.setDialog(
       'Dig',
-      'Det gør mere og mere ondt, alle kigger på mig.',
+      'Det gør mere og mere ondt. Alle kigger på mig.',
     );
     game.playSfx('scary');
 
@@ -613,7 +623,7 @@ const storyActions = {
 
     game.setDialog(
       'Dig',
-      'Pis mit tog er kørt... Så skal jeg vente på det næste...',
+      'Pis mit tog er kørt... så skal jeg vente på det næste...',
     );
   },
   harforsinket(game) {
@@ -726,7 +736,7 @@ const storyActions = {
     })
     game.setDialog(
       'Dig',
-      'Møj... vi fik øjnkontakt.',
+      'Fuck... vi fik øjenkontakt.',
     );
   },
   ikkeøjnkontakt (game) {
@@ -763,7 +773,7 @@ const storyActions = {
     })
     game.setDialog(
       'Mand',
-      'Ej hvor er det bare RIGTIG sødt af dig.',
+      'Du- du er en skat. Tak!',
       '#6724ff',
     );
   },
@@ -777,7 +787,7 @@ const storyActions = {
     })
     game.setDialog(
       'Dig',
-      'Jeg ved godt toget bliver aflyst af og til...',
+      'Ja, jeg ved godt, at toget bliver aflyst af og til...',
     );
     game.playSfx('scary');
   },
@@ -804,7 +814,7 @@ const storyActions = {
     })
     game.setDialog(
       'Mand',
-      'Ej hvor er du dum.',
+      'Heh, nå.',
       '#6724ff',
     );
   },
@@ -915,14 +925,14 @@ const storyActions = {
       game.setDialog(
         'Dig',
         'Der kommer et tog på en anden perron om kort tid.' +
-        'Det kræver et togskift midtvejs...',
+        'Det kræver et togskifte midtvejs...',
         '#bdf9ac',
       );
     }
     if (game.state.statTime < -20) {
       game.setDialog(
         'Dig',
-        'Der ankommer et tog om 20 minutter, jeg vil blive 5-10 minutter forsinket til min jobsamtale.',
+        'Der ankommer et tog om 20 minutter. Jeg vil blive 5-10 minutter forsinket til min jobsamtale.',
         '#bdf9ac',
       );
     }
