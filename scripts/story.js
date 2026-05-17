@@ -476,7 +476,7 @@ const storyActions = {
 
     game.setDialog(
       'Kvindestemme',
-      'KAN DU IKKE SE, AT JEG ER MIDT I NOGET!?',
+      'Vær dog lidt tålmodig!',
       '#D7FF36',
     );
     game.playSfx('tinnitus1');
@@ -504,7 +504,7 @@ const storyActions = {
 
     game.setDialog(
       'Kvindestemme',
-      'Hov hov! Tal pænt!',
+      'Hov hey!',
       '#D7FF36',
     );
     game.playSfx('heartbeat1');
@@ -623,7 +623,7 @@ const storyActions = {
 
     game.setDialog(
       'Dig',
-      'Pis mit tog er kørt... så skal jeg vente på det næste...',
+      'Pis, mit tog er kørt... så skal jeg vente på det næste...',
     );
   },
   harforsinket(game) {
@@ -651,7 +651,7 @@ const storyActions = {
 
     game.setDialog(
       'Mand',
-      'Ubehøvlet!',
+      'Flabede unge...',
       '#6724ff',
     );
     game.playSfx('jumpscare');
@@ -773,7 +773,7 @@ const storyActions = {
     })
     game.setDialog(
       'Mand',
-      'Du- du er en skat. Tak!',
+      'Ej, hvor er du bare sød!',
       '#6724ff',
     );
   },
@@ -788,6 +788,7 @@ const storyActions = {
     game.setDialog(
       'Dig',
       'Ja, jeg ved godt, at toget bliver aflyst af og til...',
+      '#7DBF58',
     );
     game.playSfx('scary');
   },
@@ -801,7 +802,7 @@ const storyActions = {
     })
     game.setDialog(
       'Dig',
-      'Jeg ved godt toget bliver aflyst af og til...',
+      'Ja, jeg ved godt, at toget bliver aflyst af og til...',
     );
   },
   harseirri(game) {
