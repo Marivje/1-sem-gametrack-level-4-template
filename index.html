@@ -152,7 +152,7 @@
                             ...
                         </div>
 
-                        <div data-step="wait-ms" data-ms="2400"></div>
+                        <div data-step="wait-ms" data-ms="1900"></div>
                         <div data-step="say" data-speaker="Dig">
                             Oh, jeg glemte at svare på den der besked... det må jeg hellere lige gøre.
                         </div>
@@ -217,6 +217,12 @@
                         src="assets/images/scenes/station%202%20clear.png"
                     >
                     <div class="steps">
+
+                        <div data-step="say" data-speaker="Dig">
+                            ...
+                        </div>
+                        <div data-step="wait-click"></div>
+
                         <div data-step="say" data-speaker="Dig">
                             Jeg kender ikke den her station, hvor skal jeg gå hen!?
                         </div>
@@ -224,21 +230,24 @@
                         <div data-step="wait-click"></div>
 
                         <div data-step="say" data-speaker="Dig">
-                            Okay, jeg skal videre. Jeg har ikke tid til det her. Men godt jeg tog afsted i god tid. Hvad skal jeg gøre nu?
+                            Okay, jeg skal videre, jeg har ikke tid til det her..
+                            Men godt jeg tog afsted i god tid. Hvad skal jeg gøre nu?
                         </div>
-
-                        <div data-step="say" data-speaker="Dig">
-                            Okay, jeg tjekker lige Planrejsen.dk hurtigt.
-                        </div>
-
-                        <div data-step="wait-click"></div>
-
-                        <div data-step="choice">
-                            <button data-next="valg1-scene" data-run="valg1">Tag toget fra en anden perron</button>
-                            <button data-next="valg2-scene" data-run="valg2">Vent på det næste tog</button>
-                            </div>
                     </div>
-                        </section>
+                    <section>
+                        <div class="steps">
+                            <div data-step="say" data-speaker="Dig">
+                                Okay, jeg tjekker lige Planrejsen.dk hurtigt.
+                            </div>
+
+                            <div data-step="wait-click"></div>
+
+                            <div data-step="choice">
+                                <button data-next="valg1-scene" data-run="valg1">Tag toget fra en anden perron</button>
+                                <button data-next="valg2-scene" data-run="valg2">Vent på det næste tog</button>
+                            </div>
+                        </div>
+                    </section>
                 </section>
 
                 <section id="valg1-scene"
@@ -247,7 +256,7 @@
                 >
                     <img
                         class="scene-background"
-                        src="assets/images/scenes/station%202%20v2%20clear.png"
+                        src="assets/images/scenes/station%202%20clear.png"
                     >
 
                     <div class="steps">
@@ -469,7 +478,6 @@
                         </button>
                         </div>
 
-
                         <div data-step="wait-click"></div>
                         <div data-step="say" data-speaker="Dig">
                             Det var heldigvis ikke så kompliceret.
@@ -493,6 +501,7 @@
                 <section id="Billet-scene"
                          class="scene"
                          data-music="traininside"
+                         data-transition-sound="dooropen"
                 >
                     <img
                         class="scene-background"
@@ -510,7 +519,7 @@
                         src="assets/images/characters/KONTROLØR%20CREEPY.png"
                     >
 
-                        <div data-step="wait-click"></div>
+                    <div class="steps">
                         <div data-step="say" data-speaker="Dig">
                             Nu skal jeg bare have fundet en plads. Der er altid så fyldt jo tættere på København, man kommer.
                         </div>
@@ -569,7 +578,7 @@
 
                         <div data-step="wait-click"></div>
                         <div data-step="say" data-speaker="Kontrollør" data-color="#15AAC8">
-                            Alt ser godt ud. Billet!
+                            Alt ser godt ud. Næste nye rejsende!
                         </div>
 
                         <div data-step="wait-click"></div>
@@ -628,7 +637,7 @@
 
                         <div data-step="wait-click"></div>
                         <div data-step="say" data-speaker="Dig">
-                            Jeg kan se én derhenne.
+                            Jeg kan se en derhenne.
                         </div>
 
                         <div data-step="wait-click"></div>
@@ -713,7 +722,7 @@
 
                         <div data-step="wait-click"></div>
                         <div data-step="say" data-speaker="Dig">
-                            Typisk at der altid kommer en kontrollør, når man rent faktisk ikke har betalt for en åndssvag billet.
+                            Typisk at der kun kommer en kontrollør, når man ikke har købt en billet.
                         </div>
 
                         <div data-step="wait-click"></div>
@@ -846,7 +855,7 @@
                                 <button data-run="ja">"Ja."</button>
                             </div>
 
-                            <div data-step="show" data-target='[data-char="mand1"]'></div>
+                            <div data-step="hide" data-target='[data-char="mand1"]'></div>
 
                             <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Dig">
@@ -863,19 +872,9 @@
                                 Okay, tænk på noget andet.
                             </div>
 
-                            <div data-step="wait-click"></div>
-                            <div data-step="say" data-speaker="Dig">
-                                ...
-                            </div>
-
                             <div data-step="choice">
                                 <button data-run="altokay">Alt er okay.</button>
                                 <button data-run="altikkeokay">Jeg kan ikke tænke på noget andet...</button>
-                            </div>
-
-                            <div data-step="wait-click"></div>
-                            <div data-step="say" data-speaker="Dig">
-                                ...
                             </div>
 
                             <div data-step="wait-click"></div>
@@ -895,7 +894,7 @@
 
 
                             <div data-step="choice">
-                                <button data-next="mellem-scene">Typisk...</button>
+                                <button data-next="mellem-scene">Skub dig gennem toget.</button>
                             </div>
 
                         </div>
@@ -908,7 +907,7 @@
                 >
                     <img
                         class="scene-background"
-                        src="assets/images/scenes/station%202%20v2%20blur.png"
+                        src="assets/images/scenes/station%202%20v2%20clear.png"
                     >
                     <section>
                         <div class="steps">
@@ -970,7 +969,7 @@
 
                             <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Dig">
-                                Hva- hvad laver den der mand? Hvorfor kommer han mod mig?
+                                Hva- hvorfor stirrer den der mand på mig?
                             </div>
 
                             <div data-step="choice">
@@ -1003,7 +1002,7 @@
                         <div class="steps">
 
                             <div data-step="say" data-speaker="Dig">
-                                Han kommer tættere på mig.
+                                Shit, han kommer tættere på mig.
                             </div>
 
                             <div data-step="choice">
@@ -1049,12 +1048,12 @@
 
                             <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Dig">
-                                ...
+                                Godt, toget kommer nu.
                             </div>
 
                             <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Dig">
-                                Godt, toget kommer nu.
+                                ...
                             </div>
 
                             <div data-step="choice">
@@ -1079,27 +1078,12 @@
                             <div class="steps">
 
                                 <div data-step="say" data-speaker="Dig">
-                                    Endelig.
-                                </div>
-
-                                <div data-step="wait-click"></div>
-                                <div data-step="say" data-speaker="Dig">
-                                    ...
+                                    Der er døren.
                                 </div>
 
                                 <div data-step="wait-click"></div>
                                 <div data-step="say" data-speaker="Dig">
                                     Nu skal jeg bare ud herfra.
-                                </div>
-
-                                <div data-step="wait-click"></div>
-                                <div data-step="say" data-speaker="Dig">
-                                    Godt, jeg kan se døren.
-                                </div>
-
-                                <div data-step="wait-click"></div>
-                                <div data-step="say" data-speaker="Dig">
-                                    ...
                                 </div>
 
                                 <div data-step="wait-click"></div>
@@ -1110,11 +1094,6 @@
                                 <div data-step="wait-click"></div>
                                 <div data-step="say" data-speaker="Dig">
                                     Og selvfølgelig kan hun ikke komme ud af døren.
-                                </div>
-
-                                <div data-step="wait-click"></div>
-                                <div data-step="say" data-speaker="Dig">
-                                    ...
                                 </div>
 
                                 <div data-step="wait-click"></div>
@@ -1269,11 +1248,6 @@
                             <div data-step="show" data-target='[data-char="faces"]'></div>
 
                             <div data-step="wait-click"></div>
-                            <div data-step="say" data-speaker="Dig">
-                                Ej, hvor er det ubehageligt.
-                            </div>
-
-                            <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Mand" data-color="#6724ff">
                                 Har du nogle småpenge på dig?
                             </div>
@@ -1314,14 +1288,14 @@
                                 ...
                             </div>
 
-                            <div data-step="hide" data-target='[data-char="faces"]'></div>
+                            <div data-step="hide" data-target='[data-char="mand1"]'></div>
 
                             <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Mand" data-color="#6724ff">
                                 Hmm... kedelig.
                             </div>
 
-                            <div data-step="hide" data-target='[data-char="mand1"]'></div>
+                            <div data-step="hide" data-target='[data-char="mand"]'></div>
 
                             <div data-step="wait-click"></div>
                             <div data-step="say" data-speaker="Dig">
@@ -1369,7 +1343,7 @@
                             </div>
 
                             <div data-step="choice">
-                                <button data-next="mellem-scene">Typisk...</button>
+                                <button data-next="mellem-scene">Skub dig igennem toget.</button>
                             </div>
                         </div>
 
