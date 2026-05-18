@@ -279,6 +279,7 @@ const storyActions = {
     );
 
     game.playSfx('heartbeat1');
+
   },
 
   RoligSidNed(game) {
